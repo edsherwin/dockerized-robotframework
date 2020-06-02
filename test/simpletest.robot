@@ -19,4 +19,4 @@ Visit Google
 
 Visit Yahoo
 	Open Browser			https://search.yahoo.com	${BROWSER}
-	#Capture Page Screenshot
+	Capture Page Screenshot
