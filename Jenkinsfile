@@ -8,8 +8,8 @@ pipeline {
             }
             environment {
                 BROWSER = 'firefox'
-                ROBOT_TESTS_DIR = "$WORKSPACE/robot-tests"
-                ROBOT_REPORTS_DIR = "$WORKSPACE/robot-reports"
+                ROBOT_TESTS_DIR = "$WORKSPACE"
+                ROBOT_REPORTS_DIR = "$WORKSPACE"
             }
             steps {
                 sh '''
