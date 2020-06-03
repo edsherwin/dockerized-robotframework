@@ -28,7 +28,7 @@ pipeline {
         stage ('Publish Results') {
             steps {
                 script {
-                sh 'del "Results\\*.zip"'
+                sh 'rm "Results//*.zip"'
                 zip zipFile: 'results/results.zip', archive: false, dir: 'results', glob: '*.html'
                 step (
                     [
