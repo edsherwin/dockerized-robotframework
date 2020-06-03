@@ -26,7 +26,8 @@ pipeline {
             }
         }
         stage ('Publish Results') {
-            script {
+            steps {
+                script {
                 sh 'del "Results\\*.zip"'
                 zip zipFile: 'results/results.zip', archive: false, dir: 'results', glob: '*.html'
                 step (
@@ -45,5 +46,6 @@ pipeline {
                 emailext body: '${SCRIPT, template="robot.template"}', subject: "[Jenkins] Robot Framework testresults for Docker Demo Project", to: 'nedsherwin@yahoo.com', recipientProviders: [[$class: 'CulpritsRecipientProvider']], attachmentsPattern: 'results/results.zip'
             }
         }
+            }
     }
 }
