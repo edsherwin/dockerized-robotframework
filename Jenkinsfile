@@ -22,9 +22,7 @@ pipeline {
                 ROBOT_REPORTS_DIR = "$WORKSPACE"
             }
             steps {
-                sh '''
-                    /opt/robotframework/bin/run-tests-in-virtual-screen.sh
-                '''
+                sh '"/opt/robotframework/bin/run-tests-in-virtual-screen.sh"'
             }
         }
     }
