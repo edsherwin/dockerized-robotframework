@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Functional regression tests') {
             agent { docker {
-                image 'rfdocker:latest'
+                image 'rfdockerv1:latest'
                 args '--shm-size=1g -u root' }
             }
             environment {
