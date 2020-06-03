@@ -1,18 +1,12 @@
 pipeline {
     agent none
     stages {
-        stage ('Checkout') {
-            agent { docker {
-                steps {
-                git branch: "master", url: "https://github.com/edsherwin/docker-robot-framework.git", credentialsId: "edsherwin"
-            }
-            }
-            }
-        }
         stage ('Build') {
             agent { docker {
                 steps {
-                sh 'docker build -t rfdockerv1 .'
+                sh '''
+                    docker build -t rfdockerv1 .
+                '''
             }
             }
             }
