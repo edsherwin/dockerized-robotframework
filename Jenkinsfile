@@ -1,14 +1,9 @@
 pipeline {
-    agent none
+    agent any
     stages {
         stage ('Build') {
-            agent { docker {
-                steps {
-                sh '''
-                    docker build -t rfdockerv1 .
-                '''
-            }
-            }
+            steps {
+                sh 'docker build -t rfdockerv1 .'
             }
         }
         stage('Functional regression tests') {
