@@ -28,8 +28,8 @@ pipeline {
         stage ('Publish Results') {
             steps {
                 script {
-                sh 'rm "results/*.zip"'
-                zip zipFile: 'results/results.zip', archive: false, dir: 'results', glob: '*.html'
+                // sh 'rm "results/*.zip"'
+                // zip zipFile: 'results/results.zip', archive: false, dir: 'results', glob: '*.html'
                 step (
                     [
                             $class              : 'RobotPublisher',
