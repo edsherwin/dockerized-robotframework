@@ -26,11 +26,11 @@ pipeline {
             }
         }
         //
-        stage ('CleanUp') {
-            steps {
-                cleanWs ()
-            }
-        }
+        // stage ('CleanUp') {
+        //     steps {
+        //         cleanWs ()
+        //     }
+        // }
     }
         
      post {
@@ -40,9 +40,9 @@ pipeline {
 			            [
 			              $class              : 'RobotPublisher',
 			              outputPath          : 'robot-reports',
-			              outputFileName      : '*/**/output.xml',
-			              reportFileName      : '*/**/report.html',
-			              logFileName         : '*/**/log.html',
+			              outputFileName      : 'output.xml',
+			              reportFileName      : 'report.html',
+			              logFileName         : 'log.html',
 			              disableArchiveOutput: false,
 			              passThreshold       : 50,
 			              unstableThreshold   : 40,
