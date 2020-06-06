@@ -30,19 +30,19 @@ pipeline {
                 script {
                 // sh 'rm "results/*.zip"'
                 // zip zipFile: 'results/results.zip', archive: false, dir: 'results', glob: '*.html'
-                step (
-                    [
-                            $class              : 'RobotPublisher',
-                            outputPath          : 'results',
-                            outputFileName      : "output.xml",
-                            reportFileName      : 'report.html',
-                            logFileName         : 'log.html',
-                            disableArchiveOutput: false,
-                            passThreshold       : 95.0,
-                            unstableThreshold   : 90.0,
-                            otherFiles          : "**/*.png,**/*.jpg",  
-                    ]
-                )
+                step(
+                [
+                $class              : 'RobotPublisher',
+                outputPath          : 'robot_reports',
+                outputFileName      : "**/output.xml",
+                reportFileName      : '**/report.html',
+                logFileName         : '**/log.html',
+                disableArchiveOutput: false,
+                passThreshold       : "${env.ROBOT_PASS_THRESHOLD}" as double,
+                unstableThreshold   : "${env.ROBOT_UNSTABLE_THRESHOLD}" as double,
+                otherFiles          : "**/*.png,**/*.jpg",
+                ]
+            )
                 emailext body: '${SCRIPT, template="robot.template"}', subject: "[Jenkins] Robot Framework testresults for Docker Demo Project", to: 'nedsherwin@yahoo.com', recipientProviders: [[$class: 'CulpritsRecipientProvider']], attachmentsPattern: 'results/results.zip'
             }
         }
