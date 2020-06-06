@@ -19,7 +19,7 @@ pipeline {
             environment {
                 BROWSER = 'chrome'
                 ROBOT_TESTS_DIR = "$WORKSPACE"
-                ROBOT_REPORTS_DIR = "$WORKSPACE/robot-reports"
+                ROBOT_REPORTS_DIR = "$WORKSPACE"
             }
             steps {
                 sh '"/opt/robotframework/bin/run-tests-in-virtual-screen.sh"'
@@ -39,7 +39,7 @@ pipeline {
 		          step(
 			            [
 			              $class              : 'RobotPublisher',
-			              outputPath          : '/robot-reports',
+			              outputPath          : 'robot-reports',
 			              outputFileName      : 'output.xml',
 			              reportFileName      : 'report.html',
 			              logFileName         : 'log.html',
