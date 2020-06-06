@@ -1,6 +1,5 @@
 pipeline {
     agent any
-    cleanWS ()
     stages {
         stage ('Checkout'){
             steps {
@@ -30,6 +29,7 @@ pipeline {
     }
      post {
         	always {
+                cleanWS ()
 		        script {
 		          step(
 			            [
