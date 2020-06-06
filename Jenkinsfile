@@ -25,11 +25,12 @@ pipeline {
                 sh '"/opt/robotframework/bin/run-tests-in-virtual-screen.sh"'
             }
         }
+        //
         post {
-            always {
-                script {
-                    step (
-                       [
+        	always {
+		        script {
+		          step(
+			            [
 			              $class              : 'RobotPublisher',
 			              outputPath          : 'reports',
 			              outputFileName      : '**/output.xml',
@@ -39,11 +40,11 @@ pipeline {
 			              passThreshold       : 50,
 			              unstableThreshold   : 40,
 			              otherFiles          : "**/*.png,**/*.jpg",
-			            ] 
-                    )
+			            ]
+		          	)
+		        }
+	  		}		
+	    }
 
-                }
-            }
-        }
     }
 }
