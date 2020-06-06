@@ -1,5 +1,6 @@
 pipeline {
     agent any
+    cleanWS ()
     stages {
         stage ('Checkout'){
             steps {
@@ -23,7 +24,6 @@ pipeline {
             }
             steps {
                 sh '"/opt/robotframework/bin/run-tests-in-virtual-screen.sh"'
-                cleanWS ()
             }
         }
         //
