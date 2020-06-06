@@ -19,7 +19,7 @@ pipeline {
             environment {
                 BROWSER = 'chrome'
                 ROBOT_TESTS_DIR = "$WORKSPACE"
-                ROBOT_REPORTS_DIR = "$ROBOT_REPORTS_DIR"
+                ROBOT_REPORTS_DIR = "$WORKSPACE/robot-reports"
             }
             steps {
                 sh '"/opt/robotframework/bin/run-tests-in-virtual-screen.sh"'
@@ -27,9 +27,13 @@ pipeline {
         }
         //
     }
+        stage ('CleanUp') {
+            steps {
+                cleanWs ()
+            }
+        }
      post {
         	always {
-                cleanWS ()
 		        script {
 		          step(
 			            [
