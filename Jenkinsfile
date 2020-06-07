@@ -16,9 +16,9 @@ pipeline {
                 
                 // }
          //   }
-         arguments {
-                args '--shm-size=1g -u root'
-         }
+        //  arguments {
+        //         args '--shm-size=1g -u root'
+        //  }
             environment {
                 BROWSER = 'firefox'
                 ROBOT_TESTS_DIR = "$WORKSPACE"
