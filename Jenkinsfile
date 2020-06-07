@@ -22,6 +22,10 @@ pipeline {
             //     ROBOT_REPORTS_DIR = "$WORKSPACE/reports"
             // }
             steps {
+                sh 'docker run --shm-size=1g \
+                -e BROWSER=firefox \
+                -v ${PWD}/:$WORKSPACE \
+                rfdockerv1:latest'
            //     sh '"/opt/robotframework/bin/run-tests-in-virtual-screen.sh"'
                 // sh 'docker run -v ${PWD}/reports:/opt/robotframework/reports:Z -v ${PWD}/Tests:$WORKSPACE:Z \
                 //             -e BROWSER=chrome rfdockerv1:latest'
@@ -32,7 +36,7 @@ pipeline {
                 // -v $WORKSPACE/robot-reports:/opt/robotframework/reports \
                 // rfdockerv1:latest"
 
-                sh "docker run --shm-size=1g -e BROWSER=firefox -v $WORKSPACE/robot-tests:/opt/robotframework/tests:Z -v $WORKSPACE/robot-reports:/opt/robotframework/reports:Z rfdockerv1:latest"
+              //  sh "docker run --shm-size=1g -e BROWSER=firefox -v $WORKSPACE/robot-tests:$WORKSPACE:Z -v $WORKSPACE/robot-reports:/opt/robotframework/reports:Z rfdockerv1:latest"
             }
         }
         //
