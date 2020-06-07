@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    //agent any
     stages {
         stage ('Checkout'){
             steps {
@@ -16,7 +16,7 @@ pipeline {
                 image 'rfdockerv1:latest'
                 args '--shm-size=1g -u root' }
             environment {
-                BROWSER = 'chrome'
+                BROWSER = 'firefox'
                 ROBOT_TESTS_DIR = "$WORKSPACE"
                 ROBOT_REPORTS_DIR = "$WORKSPACE/reports"
             }
