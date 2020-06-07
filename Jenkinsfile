@@ -25,12 +25,12 @@ pipeline {
            //     sh '"/opt/robotframework/bin/run-tests-in-virtual-screen.sh"'
                 // sh 'docker run -v ${PWD}/reports:/opt/robotframework/reports:Z -v ${PWD}/Tests:$WORKSPACE:Z \
                 //             -e BROWSER=chrome rfdockerv1:latest'
-                sh 'docker run --shm-size=1g \
+                sh "docker run --shm-size=1g \
                 -e BROWSER=firefox \
                 -v /var/run/docker.sock:/var/run/docker.sock \
                 -v $WORKSPACE \
                 -v $WORKSPACE/robot-reports:/opt/robotframework/reports \
-                rfdockerv1:latest'
+                rfdockerv1:latest"
             }
         }
         //
