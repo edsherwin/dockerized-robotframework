@@ -18,7 +18,7 @@ pipeline {
                 args '--shm-size=1g -u root' }
             }
             environment {
-                BROWSER = 'firefox'
+                BROWSER = 'chrome'
                 ROBOT_TESTS_DIR = "$WORKSPACE"
                 ROBOT_REPORTS_DIR = "$WORKSPACE/reports"
             }
