@@ -12,16 +12,16 @@ pipeline {
             }
         }
         stage ('Test') {
-            agent { docker {
-                image 'rfdockerv1:latest'
-                args '--shm-size=1g -u root' }
-            }
-            environment {
-                BROWSER = 'chrome'
-                ROBOT_TESTS_DIR = "$WORKSPACE"
-                ROBOT_REPORTS_DIR = "$WORKSPACE/reports"
-            }
-            steps {
+            // agent { docker {
+            //     image 'rfdockerv1:latest'
+            //     args '--shm-size=1g -u root' }
+            // }
+            // environment {
+            //     BROWSER = 'chrome'
+            //     ROBOT_TESTS_DIR = "$WORKSPACE"
+            //     ROBOT_REPORTS_DIR = "$WORKSPACE/reports"
+            // }
+            // steps {
            //     sh '"/opt/robotframework/bin/run-tests-in-virtual-screen.sh"'
                 // sh 'docker run -v ${PWD}/reports:/opt/robotframework/reports:Z -v ${PWD}/Tests:$WORKSPACE:Z \
                 //             -e BROWSER=chrome rfdockerv1:latest'
