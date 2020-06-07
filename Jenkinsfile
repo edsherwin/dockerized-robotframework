@@ -12,11 +12,11 @@ pipeline {
             }
         }
         stage ('Test') {
-            agent { docker 
+            //agent { docker 
             {
                 image 'rfdockerv1:latest'
                 args '--shm-size=1g -u root' }
-            }
+           // }
             environment {
                 BROWSER = 'chrome'
                 ROBOT_TESTS_DIR = "$WORKSPACE"
