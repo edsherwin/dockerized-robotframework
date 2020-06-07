@@ -24,7 +24,7 @@ pipeline {
             steps {
            //     sh '"/opt/robotframework/bin/run-tests-in-virtual-screen.sh"'
                 sh 'docker run -v ${PWD}/reports:/opt/robotframework/reports:Z -v ${PWD}/Tests:/opt/robotframework/tests:Z \
-                            -e BROWSER=chrome ppodgorsek/robot-framework:latest'
+                            -e BROWSER=chrome rfdockerv1:latest'
             }
         }
         //
