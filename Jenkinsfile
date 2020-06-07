@@ -16,12 +16,15 @@ pipeline {
                 
                 // }
          //   }
+         arguments {
+                args '--shm-size=1g -u root'
+         }
             environment {
                 BROWSER = 'firefox'
                 ROBOT_TESTS_DIR = "$WORKSPACE"
                 ROBOT_REPORTS_DIR = "$WORKSPACE/reports"
-                image 'rfdockerv1:latest'
-                args '--shm-size=1g -u root'
+               // image 'rfdockerv1:latest'
+                
             }
             steps {
            //     sh '"/opt/robotframework/bin/run-tests-in-virtual-screen.sh"'
