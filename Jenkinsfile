@@ -1,5 +1,5 @@
 pipeline {
-    //agent any
+    agent any
     stages {
         stage ('Checkout'){
             steps {
@@ -12,9 +12,11 @@ pipeline {
             }
         }
         stage ('Test') {
-             {
+          //  agent { docker {
                 image 'rfdockerv1:latest'
-                args '--shm-size=1g -u root' }
+                args '--shm-size=1g -u root'
+                // }
+         //   }
             environment {
                 BROWSER = 'firefox'
                 ROBOT_TESTS_DIR = "$WORKSPACE"
