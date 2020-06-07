@@ -27,6 +27,7 @@ pipeline {
                 //             -e BROWSER=chrome rfdockerv1:latest'
                 sh 'docker run --shm-size=1g \
                 -e BROWSER=firefox \
+                -v /var/run/docker.sock:/var/run/docker.sock \
                 -v $WORKSPACE \
                 -v $WORKSPACE/robot-reports:/opt/robotframework/reports \
                 rfdockerv1:latest'
