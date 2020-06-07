@@ -1,5 +1,5 @@
 pipeline {
-    agent docker
+    agent any
     stages {
         stage ('Checkout'){
             steps {
@@ -12,7 +12,7 @@ pipeline {
             }
         }
         stage ('Test') {
-            agent {...}  {
+            agent {...} { docker {
                 image 'rfdockerv1:latest'
                 args '--shm-size=1g -u root' }
             }
