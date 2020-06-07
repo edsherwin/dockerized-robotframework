@@ -38,23 +38,23 @@ pipeline {
         // }
     }
         
-//      post {
-//         	always {
-// 		        script {
-// 		          step(
-// 			            [
-// 			              $class              : 'RobotPublisher',
-// 			              outputPath          : 'reports',
-// 			              outputFileName      : 'output.xml',
-// 			              reportFileName      : 'report.html',
-// 			              logFileName         : 'log.html',
-// 			              disableArchiveOutput: false,
-// 			              passThreshold       : 50,
-// 			              unstableThreshold   : 40,
-// 			              otherFiles          : "**/*.png,**/*.jpg",
-// 			            ]
-// 		          	)
-// 		        }
-// 	  		}		
-// 	    }
+     post {
+        	always {
+		        script {
+		          step(
+			            [
+			              $class              : 'RobotPublisher',
+			              outputPath          : '/var/jenkins_home/workspace/robot-test@2/reports/',
+			              outputFileName      : 'output.xml',
+			              reportFileName      : 'report.html',
+			              logFileName         : 'log.html',
+			              disableArchiveOutput: false,
+			              passThreshold       : 50,
+			              unstableThreshold   : 40,
+			              otherFiles          : "**/*.png,**/*.jpg",
+			            ]
+		          	)
+		        }
+	  		}		
+	    }
 }
