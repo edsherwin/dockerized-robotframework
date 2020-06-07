@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent docker
     stages {
         stage ('Checkout'){
             steps {
@@ -12,19 +12,14 @@ pipeline {
             }
         }
         stage ('Test') {
-          //  agent { docker {
-                
-                // }
-         //   }
-        //  arguments {
-        //         args '--shm-size=1g -u root'
-        //  }
+            agent { docker {
+                image 'rfdockerv1:latest'
+                args '--shm-size=1g -u root' }
+            }
             environment {
-                BROWSER = 'firefox'
+                BROWSER = 'chrome'
                 ROBOT_TESTS_DIR = "$WORKSPACE"
                 ROBOT_REPORTS_DIR = "$WORKSPACE/reports"
-               // image 'rfdockerv1:latest'
-                
             }
             steps {
            //     sh '"/opt/robotframework/bin/run-tests-in-virtual-screen.sh"'
@@ -49,7 +44,7 @@ pipeline {
 		          step(
 			            [
 			              $class              : 'RobotPublisher',
-			              outputPath          : 'robot-test@2/reports',
+			              outputPath          : 'reports',
 			              outputFileName      : 'output.xml',
 			              reportFileName      : 'report.html',
 			              logFileName         : 'log.html',
