@@ -2,6 +2,7 @@ pipeline {
     agent none
     stages {
         stage ('Checkout'){
+            agent { label 'docker' }
             steps {
                 git branch: "master", url: "https://github.com/edsherwin/docker-robot-framework.git", credentialsId: "edsherwin"
             }
@@ -13,7 +14,7 @@ pipeline {
         }
         stage ('Test') {
             //agent { docker
-            agent {label 'docker '}
+            agent { label 'docker '}
             {
                 image 'rfdockerv1:latest'
                 args '--shm-size=1g -u root' 
@@ -25,7 +26,7 @@ pipeline {
                 ROBOT_TESTS_DIR = "$WORKSPACE"
                 ROBOT_REPORTS_DIR = "$WORKSPACE/reports"
             }
-            agent none
+        //    agent none
             steps {
                 sh '"/opt/robotframework/bin/run-tests-in-virtual-screen.sh"'
            // sh 'python3 -m rflint --ignore LineTooLong myapp'
