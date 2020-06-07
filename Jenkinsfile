@@ -13,9 +13,12 @@ pipeline {
         }
         stage ('Test') {
             //agent { docker
-            test {
+            agent {label 'docker '}
+            {
                 image 'rfdockerv1:latest'
-                args '--shm-size=1g -u root' }
+                args '--shm-size=1g -u root' 
+            }
+                
            // }
             environment {
                 BROWSER = 'chrome'
