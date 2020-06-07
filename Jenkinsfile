@@ -22,11 +22,11 @@ pipeline {
                 ROBOT_REPORTS_DIR = "$WORKSPACE/reports"
             }
             steps {
-           //     sh '"/opt/robotframework/bin/run-tests-in-virtual-screen.sh"'
+                sh '"/opt/robotframework/bin/run-tests-in-virtual-screen.sh"'
            // sh 'python3 -m rflint --ignore LineTooLong myapp'
-		        	sh 'python3 -m robot.run --NoStatusRC --variable $WORKSPACE:test --outputdir reports test/'
+		  //      	sh 'python3 -m robot.run --NoStatusRC --variable $WORKSPACE:test --outputdir reports test/'
 		        	//sh 'python3 -m robot.run --NoStatusRC --variable $WORKSPACE:test --rerunfailed reports/output.xml --outputdir reports test/'
-		        	sh 'python3 -m robot.rebot --merge --output reports/output.xml -l reports/log.html -r reports/report.html reports/output.xml reports/output.xml'
+		  //      	sh 'python3 -m robot.rebot --merge --output reports/output.xml -l reports/log.html -r reports/report.html reports/output.xml reports/output.xml'
 		        	sh 'exit 0'
             }
         }
