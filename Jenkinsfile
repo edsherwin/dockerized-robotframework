@@ -14,6 +14,7 @@ pipeline {
         stage ('Test') {
              agent { docker {
                 image 'rfdockerv1:latest'
+                reuseNode 'true'
                 args '--shm-size=1g -u root' }
             }
             environment {
@@ -44,7 +45,7 @@ pipeline {
 		          step(
 			            [
 			              $class              : 'RobotPublisher',
-			              outputPath          : '/var/jenkins_home/workspace/robot-test@2/reports/',
+			              outputPath          : 'reports',
 			              outputFileName      : 'output.xml',
 			              reportFileName      : 'report.html',
 			              logFileName         : 'log.html',
