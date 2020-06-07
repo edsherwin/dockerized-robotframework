@@ -12,31 +12,22 @@ pipeline {
             }
         }
         stage ('Test') {
-            // agent { docker {
-            //     image 'rfdockerv1:latest'
-            //     args '--shm-size=1g -u root' }
-            // }
-            // environment {
-            //     BROWSER = 'chrome'
-            //     ROBOT_TESTS_DIR = "$WORKSPACE"
-            //     ROBOT_REPORTS_DIR = "$WORKSPACE/reports"
-            // }
+            agent { docker {
+                image 'rfdockerv1:latest'
+                args '--shm-size=1g -u root' }
+            }
+            environment {
+                BROWSER = 'chrome'
+                ROBOT_TESTS_DIR = "$WORKSPACE"
+                ROBOT_REPORTS_DIR = "$WORKSPACE/reports"
+            }
             steps {
-                sh 'docker run --shm-size=1g \
-                -e BROWSER=firefox \
-                -v ${PWD}/:$WORKSPACE \
-                rfdockerv1:latest'
            //     sh '"/opt/robotframework/bin/run-tests-in-virtual-screen.sh"'
-                // sh 'docker run -v ${PWD}/reports:/opt/robotframework/reports:Z -v ${PWD}/Tests:$WORKSPACE:Z \
-                //             -e BROWSER=chrome rfdockerv1:latest'
-                // sh "docker run --shm-size=1g \
-                // -e BROWSER=firefox \
-                // -v /var/run/docker.sock:/var/run/docker.sock \
-                // -v $WORKSPACE \
-                // -v $WORKSPACE/robot-reports:/opt/robotframework/reports \
-                // rfdockerv1:latest"
-
-              //  sh "docker run --shm-size=1g -e BROWSER=firefox -v $WORKSPACE/robot-tests:$WORKSPACE:Z -v $WORKSPACE/robot-reports:/opt/robotframework/reports:Z rfdockerv1:latest"
+           // sh 'python3 -m rflint --ignore LineTooLong myapp'
+		        	sh 'python3 -m robot.run --NoStatusRC --variable $WORKSPACE:/test --outputdir reports /test/'
+		        	sh 'python3 -m robot.run --NoStatusRC --variable $WORKSPACE:/test --rerunfailed reports/output.xml --outputdir reports /test/'
+		        	sh 'python3 -m robot.rebot --merge --output reports/output.xml -l reports/log.html -r reports/report.html reports/output.xml reports/output.xml'
+		        	sh 'exit 0'
             }
         }
         //
