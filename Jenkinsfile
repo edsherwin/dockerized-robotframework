@@ -2,7 +2,7 @@ pipeline {
     agent none
     stages {
         stage ('Checkout'){
-            agent { label 'docker' }
+            agent none
             steps {
                 git branch: "master", url: "https://github.com/edsherwin/docker-robot-framework.git", credentialsId: "edsherwin"
             }
