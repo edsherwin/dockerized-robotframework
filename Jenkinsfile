@@ -12,8 +12,8 @@ pipeline {
             }
         }
         stage ('Test') {
-            //agent { docker 
-            {
+            //agent { docker
+            test {
                 image 'rfdockerv1:latest'
                 args '--shm-size=1g -u root' }
            // }
