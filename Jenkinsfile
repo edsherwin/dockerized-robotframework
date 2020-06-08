@@ -24,8 +24,8 @@ pipeline {
                 junit 'reports/junit-*.xml'
                 archive 'reports/*.xml'
                 step ([
-                    $class  : 'InfluxDbPublisher'
-                    execPattern: 'reports'
+                    $class  : 'InfluxDbPublisher',
+                    execPattern: 'reports',
                 ])
                 args '--shm-size=1g -u root' }
             }
