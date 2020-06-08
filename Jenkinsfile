@@ -38,26 +38,26 @@ pipeline {
             }
         }
         //Publish to Grafana
-        stage ('Publish Report') {
-                if (currentBuild.currentResult == 'UNSTABLE') {
-                    currentBuild.result == "UNSTABLE"
-                } 
-                else {
-                    currentBuild.result = "SUCCESS"
-                }
-                steps
-                ([$class: 'InfluxDbPublisher', customData: null, customDataMap: null, customPrefix: null, target: 'grafana'])
-        }
-        catch (Exception e) {
-        currentBuild.result = "FAILURE"
-        step([$class: 'InfluxDbPublisher', customData: null, customDataMap: null, customPrefix: null, target: 'grafana'])
-        }
-    }
+    //     stage ('Publish Report') {
+    //             if (currentBuild.currentResult == 'UNSTABLE') {
+    //                 currentBuild.result == "UNSTABLE"
+    //             } 
+    //             else {
+    //                 currentBuild.result = "SUCCESS"
+    //             }
+    //             steps
+    //             ([$class: 'InfluxDbPublisher', customData: null, customDataMap: null, customPrefix: null, target: 'grafana'])
+    //     }
+    //     catch (Exception e) {
+    //     currentBuild.result = "FAILURE"
+    //     step([$class: 'InfluxDbPublisher', customData: null, customDataMap: null, customPrefix: null, target: 'grafana'])
+    //     }
+    // }
      //RobotFramework Test Results   
      post {
         	always {
 		        script {
-		          step(
+		          step (
 			            [
 			              $class              : 'RobotPublisher',
 			              outputPath          : 'reports',
@@ -71,6 +71,26 @@ pipeline {
 			            ]
 		          	)
 		        }
-	  		}		
+	  		}	
+            //Grafana
+            always {
+                script {
+                    if (currentBuild.currentResult == 'UNSTABLE') {
+                    currentBuild.result == "UNSTABLE"
+                } 
+                else {
+                    currentBuild.result = "SUCCESS"
+                }
+                step (
+                    [
+                        $class              : 'InfluxDbPublisher',
+                        customData          : null,
+                        customDataMap       : null,
+                        customPrefix        : null,
+                        target              : 'grafana'
+                    ]
+                )
+            }	
 	    }
+    //post 
 }
