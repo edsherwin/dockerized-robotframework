@@ -71,7 +71,7 @@ pipeline {
                           customData          : null,
                           customDataMap       : null,
                           customPrefix        : null,
-                          target              : 'jenkins_data',
+                          target              : 'grafana',
 			            ]
 		          	)
 		        }
