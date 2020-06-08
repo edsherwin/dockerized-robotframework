@@ -59,7 +59,7 @@ pipeline {
 		        script {
 		          step (
 			            [
-			              $class              : 'RobotPublisher',
+			              $class              : 'InfluxDbPublisher',
 			              outputPath          : 'reports',
 			              outputFileName      : 'output.xml',
 			              reportFileName      : 'report.html',
@@ -68,30 +68,34 @@ pipeline {
 			              passThreshold       : 50,
 			              unstableThreshold   : 40,
 			              otherFiles          : "**/*.png,**/*.jpg",
+                          customData          : null,
+                        customDataMap       : null,
+                        customPrefix        : null,
+                        target              : 'grafana',
 			            ]
 		          	)
 		        }
 	  		}	
             //Grafana
-            always {
-                script {
-                    if (currentBuild.currentResult == 'UNSTABLE') {
-                    currentBuild.result == "UNSTABLE"
-                } 
-                else {
-                    currentBuild.result = "SUCCESS"
-                }
-                step (
-                    [
-                        $class              : 'InfluxDbPublisher',
-                        customData          : null,
-                        customDataMap       : null,
-                        customPrefix        : null,
-                        target              : 'grafana'
-                    ]
-                )
-            }	
-	    }
+        //     always {
+        //         script {
+        //             if (currentBuild.currentResult == 'UNSTABLE') {
+        //             currentBuild.result == "UNSTABLE"
+        //         } 
+        //         else {
+        //             currentBuild.result = "SUCCESS"
+        //         }
+        //         step (
+        //             [
+        //                 $class              : 'InfluxDbPublisher',
+        //                 customData          : null,
+        //                 customDataMap       : null,
+        //                 customPrefix        : null,
+        //                 target              : 'grafana'
+        //             ]
+        //         )
+        //     }	
+	    // }
     //post 
      }
 }
