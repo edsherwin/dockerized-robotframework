@@ -1,19 +1,25 @@
 pipeline {
     agent any
-    stages {
-        stage ('Checkout'){
+    stages {   
+        stage ('Clean Workspace') {
+            steps {
+                cleanWs ()
+            }
+        }
+        stage ('Checkout Repository'){
             steps {
                 git branch: "master", url: "https://github.com/edsherwin/docker-robot-framework.git", credentialsId: "edsherwin"
             }
         }
-        stage ('Build') {
+        stage ('Build Image') {
             steps {
                 sh 'docker build -t rfdockerv1 .'
             }
         }
-        stage ('Test') {
+        stage ('Test Execution') {
              agent { docker {
                 image 'rfdockerv1:latest'
+                // reuseNode = the same workspace created at top-level of the Pipeline
                 reuseNode 'true'
                 args '--shm-size=1g -u root' }
             }
@@ -31,14 +37,23 @@ pipeline {
 		        	sh 'exit 0'
             }
         }
-        //
-        // stage ('CleanUp') {
-        //     steps {
-        //         cleanWs ()
-        //     }
-        // }
+        //Publish to Grafana
+        stage ('Publish Report') {
+                if (currentBuild.currentResult == 'UNSTABLE') {
+                    currentBuild.result == "UNSTABLE"
+                } 
+                else {
+                    currentBuild.result = "SUCCESS"
+                }
+                steps
+                ([$class: 'InfluxDbPublisher', customData: null, customDataMap: null, customPrefix: null, target: 'grafana'])
+        }
+        catch (Exception e) {
+        currentBuild.result = "FAILURE"
+        step([$class: 'InfluxDbPublisher', customData: null, customDataMap: null, customPrefix: null, target: 'grafana'])
+        }
     }
-        
+     //RobotFramework Test Results   
      post {
         	always {
 		        script {
