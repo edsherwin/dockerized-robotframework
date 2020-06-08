@@ -52,7 +52,7 @@ pipeline {
     //     currentBuild.result = "FAILURE"
     //     step([$class: 'InfluxDbPublisher', customData: null, customDataMap: null, customPrefix: null, target: 'grafana'])
     //     }
-    // }
+     }
      //RobotFramework Test Results   
      post {
         	always {
