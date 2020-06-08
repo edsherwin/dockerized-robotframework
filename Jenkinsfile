@@ -21,6 +21,12 @@ pipeline {
                 image 'rfdockerv1:latest'
                 // reuseNode = the same workspace created at top-level of the Pipeline
                 reuseNode 'true'
+                junit 'reports/junit-*.xml'
+                archive 'reports/*.xml'
+                step ([
+                    $class  : 'InfluxDbPublisher'
+                    execPattern: 'reports'
+                ])
                 args '--shm-size=1g -u root' }
             }
             environment {
