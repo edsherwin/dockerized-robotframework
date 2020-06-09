@@ -43,7 +43,7 @@ pipeline {
          always {
             robot outputPath: 'reports'
             influxDbPublisher selectedTarget: 'jenkins_data'
-            step 
+   //         step 
             (
                 [
                           $class              : 'RobotPublisher',
