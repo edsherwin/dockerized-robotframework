@@ -44,7 +44,7 @@ pipeline {
                 {
                     robot outputPath: ‘reprots/’
                     influxDbPublisher selectedTarget: ‘jenkins_data’
-                }
+          ...      }
                     
 		        script {
 		          step (
