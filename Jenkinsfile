@@ -45,18 +45,20 @@ pipeline {
 		          step (
 			            [
 			              $class                        : 'InfluxDbPublisher',
-			              outputPath                    : 'reports',
-			              outputFileName                : 'output.xml',
-			              reportFileName                : 'report.html',
-			              logFileName                   : 'log.html',
-			              disableArchiveOutput          : false,
-			              passThreshold                 : 50,       
-			              unstableThreshold             : 40,
-			              otherFiles                    : "**/*.png,**/*.jpg",
+			              //outputPath                    : 'reports',
+			              //outputFileName                : 'output.xml',
+			              //reportFileName                : 'report.html',
+			              //logFileName                   : 'log.html',
+			              //disableArchiveOutput          : false,
+			              //passThreshold                 : 50,       
+			              //unstableThreshold             : 40,
+			              //otherFiles                    : "**/*.png,**/*.jpg",
+                          rfsuite_name                  : string,
+                          
                           customData                    : null,
                           customDataMap                 : null,
                           customPrefix                  : null,
-                          selectedTarget                : 'jenkins_data',
+                          target                        : 'http://172.17.0.5:8086,jenkins_data',
 			            ]
 		          	)
 		        }
