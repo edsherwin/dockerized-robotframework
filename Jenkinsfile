@@ -41,7 +41,8 @@ pipeline {
      //RobotFramework Test Results   & Grafa Integration
      post {
          always {
-                            robot outputPath: 'reports',
+             step ([
+                    robot outputPath: 'reports',
                            target: 'jenkins_data',
                             outputPath          : 'reports',
 			              outputFileName      : 'output.xml',
@@ -50,7 +51,9 @@ pipeline {
 			              disableArchiveOutput: false,
 			              passThreshold       : 50,
 			              unstableThreshold   : 40,
-			              otherFiles          : "**/*.png,**/*.jpg",
+			              otherFiles          : "**/*.png,**/*.jpg",    
+             ])
+                            
          }
      }
 }
