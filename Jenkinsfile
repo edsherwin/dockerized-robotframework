@@ -41,24 +41,29 @@ pipeline {
      //RobotFramework Test Results   & Grafa Integration
      post {
         	always {
+                {
+                    robot outputPath: ‘reprots/’
+                    influxDbPublisher selectedTarget: ‘jenkins_data’
+                }
+                    
 		        script {
 		          step (
 			            [
 			              $class                        : 'InfluxDbPublisher',
-			              //outputPath                    : 'reports',
-			              //outputFileName                : 'output.xml',
-			              //reportFileName                : 'report.html',
-			              //logFileName                   : 'log.html',
-			              //disableArchiveOutput          : false,
-			              //passThreshold                 : 50,       
-			              //unstableThreshold             : 40,
-			              //otherFiles                    : "**/*.png,**/*.jpg",
-                          rfsuite_name                  : string,
-                          
-                          customData                    : null,
-                          customDataMap                 : null,
-                          customPrefix                  : null,
-                          target                        : 'http://172.17.0.5:8086,jenkins_data',
+			             robot outputPath                    : 'reports',
+			              outputFileName                : 'output.xml',
+			              reportFileName                : 'report.html',
+			              logFileName                   : 'log.html',
+			              disableArchiveOutput          : false,
+			              passThreshold                 : 50,       
+			              unstableThreshold             : 40,
+			              otherFiles                    : "**/*.png,**/*.jpg",
+                        //   rfsuite_name                  : string,
+
+                        //   customData                    : null,
+                        //   customDataMap                 : null,
+                        //   customPrefix                  : null,
+                          target                        : 'grafana,
 			            ]
 		          	)
 		        }
