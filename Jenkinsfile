@@ -55,14 +55,14 @@ pipeline {
 			              passThreshold                 : 50,       
 			              unstableThreshold             : 40,
 			              otherFiles                    : "**/*.png,**/*.jpg",
-                        //  robot outputPath : ‘reports/’
-                            influxDbPublisher selectedTarget : ‘jenkins_data’
+                          robot outputPath : 'reports/',
+                            influxDbPublisher selectedTarget : 'jenkins_data'
                         //   rfsuite_name                  : string,
 
                         //   customData                    : null,
                         //   customDataMap                 : null,
                         //   customPrefix                  : null,
-                        //  target                        : 'http://172.17.0.5:8086, jenkins_data',
+                          target                        : 'jenkins_data',
 			            ]
 		          	)
 		        }
