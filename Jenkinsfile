@@ -42,7 +42,7 @@ pipeline {
      post {
          always {
              step ([
-                        $class      : 'RobotPublisher'
+                        $class      : 'RobotPublisher',
                      // outputPath: 'reports',
                            target: 'jenkins_data',
                             outputPath          : 'reports',
