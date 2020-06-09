@@ -42,7 +42,8 @@ pipeline {
      post {
          always {
              step ([
-                    robot outputPath: 'reports',
+                        $class      : 'RobotPublisher'
+                     // outputPath: 'reports',
                            target: 'jenkins_data',
                             outputPath          : 'reports',
 			              outputFileName      : 'output.xml',
