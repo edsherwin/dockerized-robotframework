@@ -37,65 +37,29 @@ pipeline {
 		        	sh 'exit 0'
             }
         }
-        //Publish to Grafana
-    //     stage ('Publish Report') {
-    //             if (currentBuild.currentResult == 'UNSTABLE') {
-    //                 currentBuild.result == "UNSTABLE"
-    //             } 
-    //             else {
-    //                 currentBuild.result = "SUCCESS"
-    //             }
-    //             steps
-    //             ([$class: 'InfluxDbPublisher', customData: null, customDataMap: null, customPrefix: null, target: 'grafana'])
-    //     }
-    //     catch (Exception e) {
-    //     currentBuild.result = "FAILURE"
-    //     step([$class: 'InfluxDbPublisher', customData: null, customDataMap: null, customPrefix: null, target: 'grafana'])
-    //     }
      }
-     //RobotFramework Test Results   
+     //RobotFramework Test Results   & Grafa Integration
      post {
         	always {
 		        script {
 		          step (
 			            [
-			              $class              : 'InfluxDbPublisher',
-			              outputPath          : 'reports',
-			              outputFileName      : 'output.xml',
-			              reportFileName      : 'report.html',
-			              logFileName         : 'log.html',
-			              disableArchiveOutput: false,
-			              passThreshold       : 50,
-			              unstableThreshold   : 40,
-			              otherFiles          : "**/*.png,**/*.jpg",
-                          customData          : null,
-                          customDataMap       : null,
-                          customPrefix        : null,
-                          target              : 'grafana',
+			              $class                        : 'InfluxDbPublisher',
+			              outputPath                    : 'reports',
+			              outputFileName                : 'output.xml',
+			              reportFileName                : 'report.html',
+			              logFileName                   : 'log.html',
+			              disableArchiveOutput          : false,
+			              passThreshold                 : 50,       
+			              unstableThreshold             : 40,
+			              otherFiles                    : "**/*.png,**/*.jpg",
+                          customData                    : null,
+                          customDataMap                 : null,
+                          customPrefix                  : null,
+                          selectedTarget                : 'jenkins_data',
 			            ]
 		          	)
 		        }
 	  		}	
-            //Grafana
-        //     always {
-        //         script {
-        //             if (currentBuild.currentResult == 'UNSTABLE') {
-        //             currentBuild.result == "UNSTABLE"
-        //         } 
-        //         else {
-        //             currentBuild.result = "SUCCESS"
-        //         }
-        //         step (
-        //             [
-        //                 $class              : 'InfluxDbPublisher',
-        //                 customData          : null,
-        //                 customDataMap       : null,
-        //                 customPrefix        : null,
-        //                 target              : 'grafana'
-        //             ]
-        //         )
-        //     }	
-	    // }
-    //post 
      }
 }
