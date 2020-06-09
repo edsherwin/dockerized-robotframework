@@ -56,7 +56,7 @@ pipeline {
 			              unstableThreshold             : 40,
 			              otherFiles                    : "**/*.png,**/*.jpg",
                           outputPath : 'reports/',
-                        selectedTarget : 'jenkins_data'
+                        selectedTarget : 'jenkins_data',
                         //   rfsuite_name                  : string,
 
                         //   customData                    : null,
