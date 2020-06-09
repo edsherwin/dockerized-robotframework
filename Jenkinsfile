@@ -47,7 +47,7 @@ pipeline {
 		          step (
 			            [
 			              $class                        : 'InfluxDbPublisher',
-			             robot outputPath                    : 'reports',
+			             outputPath                    : 'reports',
 			              outputFileName                : 'output.xml',
 			              reportFileName                : 'report.html',
 			              logFileName                   : 'log.html',
@@ -55,7 +55,7 @@ pipeline {
 			              passThreshold                 : 50,       
 			              unstableThreshold             : 40,
 			              otherFiles                    : "**/*.png,**/*.jpg",
-                          robot outputPath : ‘reportts/’
+                          robot outputPath : ‘reports/’
                             influxDbPublisher selectedTarget : ‘jenkins_data’
                         //   rfsuite_name                  : string,
 
