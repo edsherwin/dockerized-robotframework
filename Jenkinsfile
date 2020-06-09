@@ -55,8 +55,8 @@ pipeline {
 			              passThreshold                 : 50,       
 			              unstableThreshold             : 40,
 			              otherFiles                    : "**/*.png,**/*.jpg",
-                          robot outputPath : 'reports/',
-                            influxDbPublisher selectedTarget : 'jenkins_data'
+                          outputPath : 'reports/',
+                        selectedTarget : 'jenkins_data'
                         //   rfsuite_name                  : string,
 
                         //   customData                    : null,
