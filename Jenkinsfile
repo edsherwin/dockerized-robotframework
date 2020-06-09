@@ -40,32 +40,9 @@ pipeline {
      }
      //RobotFramework Test Results   & Grafa Integration
      post {
-        	always {
-                
-                    
-		        script {
-		          step (
-			            [
-			              $class                        : 'InfluxDbPublisher',
-			             outputPath                    : 'reports',
-			              outputFileName                : 'output.xml',
-			              reportFileName                : 'report.html',
-			              logFileName                   : 'log.html',
-			              disableArchiveOutput          : false,
-			              passThreshold                 : 50,       
-			              unstableThreshold             : 40,
-			              otherFiles                    : "**/*.png,**/*.jpg",
-                         // outputPath : 'reports/',
-                     //   selectedTarget : 'jenkins_data',
-                        //   rfsuite_name                  : string,
-
-                           customData                    : null,
-                       customDataMap                 : null,
-                           customPrefix                  : null,
-                          target                        : 'jenkins_data',
-			            ]
-		          	)
-		        }
-	  		}	
+         always {
+            robot outputPath: 'reports'
+            influxDbPublisher selectedTarget: 'myDb'
+         }
      }
 }
