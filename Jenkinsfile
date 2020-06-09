@@ -41,13 +41,9 @@ pipeline {
      //RobotFramework Test Results   & Grafa Integration
      post {
          always {
-            robot outputPath: 'reports'
-            influxDbPublisher selectedTarget: 'jenkins_data'
-   //         step 
-            (
-                [
-                          $class              : 'RobotPublisher',
-			              outputPath          : 'reports',
+            robot outputPath: 'reports',
+            influxDbPublisher selectedTarget: 'jenkins_data',
+            outputPath          : 'reports',
 			              outputFileName      : 'output.xml',
 			              reportFileName      : 'report.html',
 			              logFileName         : 'log.html',
@@ -55,8 +51,6 @@ pipeline {
 			              passThreshold       : 50,
 			              unstableThreshold   : 40,
 			              otherFiles          : "**/*.png,**/*.jpg",
-                ]
-            )
          }
      }
 }
