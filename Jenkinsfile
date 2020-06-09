@@ -42,7 +42,7 @@ pipeline {
      post {
          always {
             robot outputPath: 'reports'
-            influxDbPublisher selectedTarget: 'myDb'
+            influxDbPublisher selectedTarget: 'jenkins_data'
          }
      }
 }
