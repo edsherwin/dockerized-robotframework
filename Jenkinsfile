@@ -55,13 +55,13 @@ pipeline {
 			              passThreshold                 : 50,       
 			              unstableThreshold             : 40,
 			              otherFiles                    : "**/*.png,**/*.jpg",
-                          outputPath : 'reports/',
-                        selectedTarget : 'jenkins_data',
+                         // outputPath : 'reports/',
+                     //   selectedTarget : 'jenkins_data',
                         //   rfsuite_name                  : string,
 
-                        //   customData                    : null,
-                        //   customDataMap                 : null,
-                        //   customPrefix                  : null,
+                           customData                    : null,
+                       customDataMap                 : null,
+                           customPrefix                  : null,
                           target                        : 'jenkins_data',
 			            ]
 		          	)
