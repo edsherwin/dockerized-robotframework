@@ -41,10 +41,7 @@ pipeline {
      //RobotFramework Test Results   & Grafa Integration
      post {
         	always {
-                {
-                    robot outputPath: ‘reprots/’
-                    influxDbPublisher selectedTarget: ‘jenkins_data’
-          ...      }
+                
                     
 		        script {
 		          step (
@@ -58,12 +55,14 @@ pipeline {
 			              passThreshold                 : 50,       
 			              unstableThreshold             : 40,
 			              otherFiles                    : "**/*.png,**/*.jpg",
+                          robot outputPath : ‘reportts/’
+                            influxDbPublisher selectedTarget : ‘jenkins_data’
                         //   rfsuite_name                  : string,
 
                         //   customData                    : null,
                         //   customDataMap                 : null,
                         //   customPrefix                  : null,
-                          target                        : 'grafana,
+                        //  target                        : 'http://172.17.0.5:8086, jenkins_data',
 			            ]
 		          	)
 		        }
