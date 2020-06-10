@@ -35,26 +35,43 @@ pipeline {
 		        	//sh 'python3 -m robot.run --NoStatusRC --variable $WORKSPACE:test --rerunfailed reports/output.xml --outputdir reports test/'
 		  //      	sh 'python3 -m robot.rebot --merge --output reports/output.xml -l reports/log.html -r reports/report.html reports/output.xml reports/output.xml'
 		        	sh 'exit 0'
+            } // end of steps
+            // Robot Framework Test Results
+            post {
+                always {
+                    step ([
+                        $class              : 'RobotPublisher',
+			            outputPath          : 'reports',
+			            outputFileName      : 'output.xml',
+			            reportFileName      : 'report.html',
+			            logFileName         : 'log.html',
+			            disableArchiveOutput: false,
+			            passThreshold       : 50,
+			            unstableThreshold   : 40,
+			            otherFiles          : "**/*.png,**/*.jpg",
+			            ]
+                    ])
+                }
             }
         }
      }
-     //RobotFramework Test Results   & Grafa Integration
-     post {
-         always {
-             step ([
-                        $class      : 'RobotPublisher',
-                     // outputPath: 'reports',
-                           target: 'jenkins_data',
-                            outputPath          : 'reports',
-			              outputFileName      : 'output.xml',
-			              reportFileName      : 'report.html',
-			              logFileName         : 'log.html',
-			              disableArchiveOutput: false,
-			              passThreshold       : 50,
-			              unstableThreshold   : 40,
-			              otherFiles          : "**/*.png,**/*.jpg",    
-             ])
+     //Push results to Grafana
+    //  post {
+    //      always {
+    //          step ([
+    //                     $class      : 'RobotPublisher',
+    //                  // outputPath: 'reports',
+    //                        target: 'jenkins_data',
+    //                         outputPath          : 'reports',
+	// 		              outputFileName      : 'output.xml',
+	// 		              reportFileName      : 'report.html',
+	// 		              logFileName         : 'log.html',
+	// 		              disableArchiveOutput: false,
+	// 		              passThreshold       : 50,
+	// 		              unstableThreshold   : 40,
+	// 		              otherFiles          : "**/*.png,**/*.jpg",    
+    //          ])
                             
-         }
-     }
+    //      }
+    //  }
 }
