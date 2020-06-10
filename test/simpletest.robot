@@ -20,3 +20,8 @@ Visit Google
 Visit Yahoo
 	Open Browser			https://search.yahoo.com	${BROWSER}
 	Capture Page Screenshot
+
+Visit Ed Sherwin Blog
+	Open Browser			http://edsherwinnnnn.netlifyis.app	${BROWSER}
+	Click Element
+	Capture Page Screenshot
