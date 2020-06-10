@@ -49,7 +49,6 @@ pipeline {
 			            passThreshold       : 50,
 			            unstableThreshold   : 40,
 			            otherFiles          : "**/*.png,**/*.jpg",
-			            ]
                     ])
                 }
             }
