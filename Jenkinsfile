@@ -8,7 +8,7 @@ pipeline {
         }
         stage ('Checkout Repository'){
             steps {
-                git branch: "master", url: "https://github.com/edsherwin/docker-robot-framework.git", credentialsId: "edsherwin"
+                git branch: "master", url: "https://github.com/edsherwin/dockerized-robotframework.git", credentialsId: "edsherwin"
             }
         }
         stage ('Build Image') {
