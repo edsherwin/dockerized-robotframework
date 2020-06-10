@@ -55,6 +55,12 @@ pipeline {
         }
      }
      //Push results to Grafana
+     post {
+         always {
+             robot outputPath: out/’
+            influxDbPublisher selectedTarget: rfdb
+         }
+     }
     //  post {
     //      always {
     //          step ([
