@@ -57,26 +57,8 @@ pipeline {
      //Push results to Grafana
      post {
          always {
-             robot outputPath: out/’
-            influxDbPublisher selectedTarget: rfdb
+            robot outputPath: 'reports',
+            influxDbPublisher selectedTarget: 'rfdb',
          }
      }
-    //  post {
-    //      always {
-    //          step ([
-    //                     $class      : 'RobotPublisher',
-    //                  // outputPath: 'reports',
-    //                        target: 'jenkins_data',
-    //                         outputPath          : 'reports',
-	// 		              outputFileName      : 'output.xml',
-	// 		              reportFileName      : 'report.html',
-	// 		              logFileName         : 'log.html',
-	// 		              disableArchiveOutput: false,
-	// 		              passThreshold       : 50,
-	// 		              unstableThreshold   : 40,
-	// 		              otherFiles          : "**/*.png,**/*.jpg",    
-    //          ])
-                            
-    //      }
-    //  }
 }
