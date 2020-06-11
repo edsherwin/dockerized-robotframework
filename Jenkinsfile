@@ -57,8 +57,8 @@ pipeline {
      //Push results to Grafana
      post {
          always {
-            robot outputPath: 'reports',
-            influxDbPublisher selectedTarget: 'rfdb'
+            robot outputPath: ‘reports/’
+            influxDbPublisher selectedTarget: ‘rfdb’
          }
      }
 }
