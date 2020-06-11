@@ -51,7 +51,7 @@ RUN apk update \
   && apk --no-cache upgrade \
   && apk --no-cache --virtual .build-deps add \
     mysqlclient \
-    dbbot-sqlalchemy \
+ #   dbbot-sqlalchemy \
     gcc \
     libffi-dev \
     linux-headers \
