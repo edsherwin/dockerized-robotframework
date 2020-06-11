@@ -50,10 +50,11 @@ COPY bin/run-tests-in-virtual-screen.sh /opt/robotframework/bin/
 RUN apk update \
   && apk --no-cache upgrade \
   && apk --no-cache --virtual .build-deps add \
-    mysqlclient \
  #   dbbot-sqlalchemy \
     gcc \
     libffi-dev \
+    libc-dev \
+    mariadb-dev \
     linux-headers \
     make \
     musl-dev \
@@ -83,6 +84,8 @@ RUN apk update \
     robotframework-seleniumlibrary==$SELENIUM_LIBRARY_VERSION \
     robotframework-sshlibrary==$SSH_LIBRARY_VERSION \
     PyYAML \
+    mysqlclient \
+    dbbot-sqlalchemy \
 
 # Download the glibc package for Alpine Linux from its GitHub repository
   && wget -q -O /etc/apk/keys/sgerrand.rsa.pub https://alpine-pkgs.sgerrand.com/sgerrand.rsa.pub \
