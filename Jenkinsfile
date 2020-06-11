@@ -58,7 +58,7 @@ pipeline {
      post {
          always {
             robot outputPath: 'reports',
-            influxDbPublisher selectedTarget: 'rfdb',
+            influxDbPublisher selectedTarget: 'rfdb'
          }
      }
 }
