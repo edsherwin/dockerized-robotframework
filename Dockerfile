@@ -85,7 +85,9 @@ RUN apk update \
     robotframework-sshlibrary==$SSH_LIBRARY_VERSION \
     PyYAML \
     mysqlclient \
+    dbbot \
     dbbot-sqlalchemy \
+   # dbbot-sqlalchemy \
 
 # Download the glibc package for Alpine Linux from its GitHub repository
   && wget -q -O /etc/apk/keys/sgerrand.rsa.pub https://alpine-pkgs.sgerrand.com/sgerrand.rsa.pub \
