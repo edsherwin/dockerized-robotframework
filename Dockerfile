@@ -45,6 +45,7 @@ ENV XVFB_VERSION 1.20
 COPY bin/chromedriver.sh /opt/robotframework/bin/chromedriver
 COPY bin/chromium-browser.sh /opt/robotframework/bin/chromium-browser
 COPY bin/run-tests-in-virtual-screen.sh /opt/robotframework/bin/
+COPY bin/mysql-grafana /opt/robotframework/bin/
 
 # Install system dependencies
 RUN apk update \
