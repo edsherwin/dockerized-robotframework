@@ -55,6 +55,7 @@ RUN apk update \
     libffi-dev \
     libc-dev \
     mariadb-dev \
+    mariadb-connector-c-dev \
     linux-headers \
     make \
     musl-dev \
@@ -87,6 +88,7 @@ RUN apk update \
     mysqlclient \
     dbbot \
     dbbot-sqlalchemy \
+    MySQL-python \
    # dbbot-sqlalchemy \
 
 # Download the glibc package for Alpine Linux from its GitHub repository
