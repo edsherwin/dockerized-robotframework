@@ -1,0 +1,2938 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.1.2 (Python 3.8.3 on linux)" generated="20200611 18:28:43.137" rpa="false">
+<suite id="s1" name="Robot-Grafana" source="/var/jenkins_home/workspace/robot-grafana">
+<suite id="s1-s1" name="Test" source="/var/jenkins_home/workspace/robot-grafana/test">
+<suite id="s1-s1-s1" name="Faker" source="/var/jenkins_home/workspace/robot-grafana/test/faker.robot">
+<test id="s1-s1-s1-t1" name="Can Get Fake Name">
+<kw name="Name" library="FakerLibrary">
+<doc>:example 'John Doe'</doc>
+<assign>
+<var>${name}</var>
+</assign>
+<msg timestamp="20200611 18:28:43.548" level="INFO">${name} = Leonard Chapman</msg>
+<status status="PASS" starttime="20200611 18:28:43.547" endtime="20200611 18:28:43.548"></status>
+</kw>
+<kw name="Should Not Be Empty" library="BuiltIn">
+<doc>Verifies that the given item is not empty.</doc>
+<arguments>
+<arg>${name}</arg>
+</arguments>
+<msg timestamp="20200611 18:28:43.550" level="INFO">Length is 15</msg>
+<status status="PASS" starttime="20200611 18:28:43.549" endtime="20200611 18:28:43.551"></status>
+</kw>
+<tags>
+<tag>faker</tag>
+</tags>
+<timeout value="1 minute"></timeout>
+<status status="PASS" starttime="20200611 18:28:43.545" endtime="20200611 18:28:43.551" critical="yes"></status>
+</test>
+<test id="s1-s1-s1-t2" name="Two Calls To Faker Should Give Different Results">
+<kw name="Name" library="FakerLibrary">
+<doc>:example 'John Doe'</doc>
+<assign>
+<var>${name}</var>
+</assign>
+<msg timestamp="20200611 18:28:43.554" level="INFO">${name} = Mrs. Kimberly Hill</msg>
+<status status="PASS" starttime="20200611 18:28:43.553" endtime="20200611 18:28:43.554"></status>
+</kw>
+<kw name="Should Not Be Empty" library="BuiltIn">
+<doc>Verifies that the given item is not empty.</doc>
+<arguments>
+<arg>${name}</arg>
+</arguments>
+<msg timestamp="20200611 18:28:43.556" level="INFO">Length is 18</msg>
+<status status="PASS" starttime="20200611 18:28:43.555" endtime="20200611 18:28:43.556"></status>
+</kw>
+<kw name="Name" library="FakerLibrary">
+<doc>:example 'John Doe'</doc>
+<assign>
+<var>${name2}</var>
+</assign>
+<msg timestamp="20200611 18:28:43.557" level="INFO">${name2} = Bryan Martinez</msg>
+<status status="PASS" starttime="20200611 18:28:43.556" endtime="20200611 18:28:43.558"></status>
+</kw>
+<kw name="Should Not Be Empty" library="BuiltIn">
+<doc>Verifies that the given item is not empty.</doc>
+<arguments>
+<arg>${name2}</arg>
+</arguments>
+<msg timestamp="20200611 18:28:43.558" level="INFO">Length is 14</msg>
+<status status="PASS" starttime="20200611 18:28:43.558" endtime="20200611 18:28:43.558"></status>
+</kw>
+<kw name="Should Not Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are equal after converting them to strings.</doc>
+<arguments>
+<arg>${name}</arg>
+<arg>${name2}</arg>
+</arguments>
+<status status="PASS" starttime="20200611 18:28:43.559" endtime="20200611 18:28:43.559"></status>
+</kw>
+<tags>
+<tag>faker</tag>
+</tags>
+<timeout value="1 minute"></timeout>
+<status status="PASS" starttime="20200611 18:28:43.552" endtime="20200611 18:28:43.560" critical="yes"></status>
+</test>
+<test id="s1-s1-s1-t3" name="Can call Words with integer argument">
+<kw name="Words" library="FakerLibrary">
+<doc>:returns: An array of random words. for example: ['Lorem', 'ipsum', 'dolor']</doc>
+<arguments>
+<arg>nb=${10}</arg>
+</arguments>
+<assign>
+<var>${WordsList}</var>
+</assign>
+<msg timestamp="20200611 18:28:43.563" level="INFO">${WordsList} = ['everything', 'save', 'its', 'officer', 'memory', 'product', 'watch', 'hit', 'paper', 'message']</msg>
+<status status="PASS" starttime="20200611 18:28:43.561" endtime="20200611 18:28:43.563"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${WordsList}</arg>
+</arguments>
+<msg timestamp="20200611 18:28:43.564" level="INFO">['everything', 'save', 'its', 'officer', 'memory', 'product', 'watch', 'hit', 'paper', 'message']</msg>
+<status status="PASS" starttime="20200611 18:28:43.563" endtime="20200611 18:28:43.564"></status>
+</kw>
+<kw name="Length Should Be" library="BuiltIn">
+<doc>Verifies that the length of the given item is correct.</doc>
+<arguments>
+<arg>${WordsList}</arg>
+<arg>10</arg>
+</arguments>
+<msg timestamp="20200611 18:28:43.567" level="INFO">Length is 10</msg>
+<status status="PASS" starttime="20200611 18:28:43.565" endtime="20200611 18:28:43.567"></status>
+</kw>
+<tags>
+<tag>faker</tag>
+</tags>
+<timeout value="1 minute"></timeout>
+<status status="PASS" starttime="20200611 18:28:43.560" endtime="20200611 18:28:43.567" critical="yes"></status>
+</test>
+<test id="s1-s1-s1-t4" name="Can call Words with str integer argument">
+<kw name="Words" library="FakerLibrary">
+<doc>:returns: An array of random words. for example: ['Lorem', 'ipsum', 'dolor']</doc>
+<arguments>
+<arg>nb=10</arg>
+</arguments>
+<assign>
+<var>${WordsList}</var>
+</assign>
+<msg timestamp="20200611 18:28:43.570" level="INFO">${WordsList} = ['campaign', 'dark', 'win', 'bad', 'himself', 'style', 'itself', 'finish', 'purpose', 'leg']</msg>
+<status status="PASS" starttime="20200611 18:28:43.569" endtime="20200611 18:28:43.570"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${WordsList}</arg>
+</arguments>
+<msg timestamp="20200611 18:28:43.570" level="INFO">['campaign', 'dark', 'win', 'bad', 'himself', 'style', 'itself', 'finish', 'purpose', 'leg']</msg>
+<status status="PASS" starttime="20200611 18:28:43.570" endtime="20200611 18:28:43.571"></status>
+</kw>
+<kw name="Length Should Be" library="BuiltIn">
+<doc>Verifies that the length of the given item is correct.</doc>
+<arguments>
+<arg>${WordsList}</arg>
+<arg>10</arg>
+</arguments>
+<msg timestamp="20200611 18:28:43.571" level="INFO">Length is 10</msg>
+<status status="PASS" starttime="20200611 18:28:43.571" endtime="20200611 18:28:43.571"></status>
+</kw>
+<tags>
+<tag>faker</tag>
+</tags>
+<timeout value="1 minute"></timeout>
+<status status="PASS" starttime="20200611 18:28:43.568" endtime="20200611 18:28:43.571" critical="yes"></status>
+</test>
+<test id="s1-s1-s1-t5" name="Can call SHA-1">
+<kw name="Sha 1" library="FakerLibrary">
+<doc>Generate a random SHA1 hash.</doc>
+<status status="PASS" starttime="20200611 18:28:43.573" endtime="20200611 18:28:43.573"></status>
+</kw>
+<kw name="Sha 1" library="FakerLibrary">
+<doc>Generate a random SHA1 hash.</doc>
+<arguments>
+<arg>${True}</arg>
+</arguments>
+<status status="PASS" starttime="20200611 18:28:43.573" endtime="20200611 18:28:43.574"></status>
+</kw>
+<kw name="Sha 1" library="FakerLibrary">
+<doc>Generate a random SHA1 hash.</doc>
+<arguments>
+<arg>${False}</arg>
+</arguments>
+<status status="PASS" starttime="20200611 18:28:43.574" endtime="20200611 18:28:43.575"></status>
+</kw>
+<kw name="Sha 1" library="FakerLibrary">
+<doc>Generate a random SHA1 hash.</doc>
+<arguments>
+<arg>True</arg>
+</arguments>
+<status status="PASS" starttime="20200611 18:28:43.575" endtime="20200611 18:28:43.576"></status>
+</kw>
+<kw name="Sha 1" library="FakerLibrary">
+<doc>Generate a random SHA1 hash.</doc>
+<arguments>
+<arg>False</arg>
+</arguments>
+<status status="PASS" starttime="20200611 18:28:43.576" endtime="20200611 18:28:43.576"></status>
+</kw>
+<tags>
+<tag>faker</tag>
+</tags>
+<timeout value="1 minute"></timeout>
+<status status="PASS" starttime="20200611 18:28:43.572" endtime="20200611 18:28:43.577" critical="yes"></status>
+</test>
+<test id="s1-s1-s1-t6" name="Can Lexify">
+<kw name="Lexify" library="FakerLibrary">
+<doc>Generate a string with each question mark ('?') in ``text``
+replaced with a random character from ``letters``.</doc>
+<arguments>
+<arg>blah???</arg>
+</arguments>
+<assign>
+<var>${lexed}</var>
+</assign>
+<msg timestamp="20200611 18:28:43.579" level="INFO">${lexed} = blahCIw</msg>
+<status status="PASS" starttime="20200611 18:28:43.578" endtime="20200611 18:28:43.579"></status>
+</kw>
+<kw name="Length Should Be" library="BuiltIn">
+<doc>Verifies that the length of the given item is correct.</doc>
+<arguments>
+<arg>${lexed}</arg>
+<arg>7</arg>
+</arguments>
+<msg timestamp="20200611 18:28:43.581" level="INFO">Length is 7</msg>
+<status status="PASS" starttime="20200611 18:28:43.580" endtime="20200611 18:28:43.582"></status>
+</kw>
+<kw name="Should Start With" library="BuiltIn">
+<doc>Fails if the string ``str1`` does not start with the string ``str2``.</doc>
+<arguments>
+<arg>${lexed}</arg>
+<arg>blah</arg>
+</arguments>
+<status status="PASS" starttime="20200611 18:28:43.582" endtime="20200611 18:28:43.583"></status>
+</kw>
+<tags>
+<tag>faker</tag>
+</tags>
+<timeout value="1 minute"></timeout>
+<status status="PASS" starttime="20200611 18:28:43.577" endtime="20200611 18:28:43.583" critical="yes"></status>
+</test>
+<test id="s1-s1-s1-t7" name="Can call Password">
+<kw name="Password" library="FakerLibrary">
+<doc>Generate a random password of the specified ``length``.</doc>
+<assign>
+<var>${pass}</var>
+</assign>
+<msg timestamp="20200611 18:28:43.585" level="INFO">${pass} = o+T1QFbd%1</msg>
+<status status="PASS" starttime="20200611 18:28:43.584" endtime="20200611 18:28:43.585"></status>
+</kw>
+<kw name="Length Should Be" library="BuiltIn">
+<doc>Verifies that the length of the given item is correct.</doc>
+<arguments>
+<arg>${pass}</arg>
+<arg>10</arg>
+</arguments>
+<msg timestamp="20200611 18:28:43.586" level="INFO">Length is 10</msg>
+<status status="PASS" starttime="20200611 18:28:43.585" endtime="20200611 18:28:43.586"></status>
+</kw>
+<kw name="Password" library="FakerLibrary">
+<doc>Generate a random password of the specified ``length``.</doc>
+<arguments>
+<arg>${5}</arg>
+</arguments>
+<assign>
+<var>${pass}</var>
+</assign>
+<msg timestamp="20200611 18:28:43.587" level="INFO">${pass} = +7KoU</msg>
+<status status="PASS" starttime="20200611 18:28:43.586" endtime="20200611 18:28:43.587"></status>
+</kw>
+<kw name="Length Should Be" library="BuiltIn">
+<doc>Verifies that the length of the given item is correct.</doc>
+<arguments>
+<arg>${pass}</arg>
+<arg>5</arg>
+</arguments>
+<msg timestamp="20200611 18:28:43.588" level="INFO">Length is 5</msg>
+<status status="PASS" starttime="20200611 18:28:43.587" endtime="20200611 18:28:43.588"></status>
+</kw>
+<kw name="Password" library="FakerLibrary">
+<doc>Generate a random password of the specified ``length``.</doc>
+<arguments>
+<arg>5</arg>
+</arguments>
+<assign>
+<var>${pass}</var>
+</assign>
+<msg timestamp="20200611 18:28:43.589" level="INFO">${pass} = (17Qu</msg>
+<status status="PASS" starttime="20200611 18:28:43.588" endtime="20200611 18:28:43.589"></status>
+</kw>
+<kw name="Length Should Be" library="BuiltIn">
+<doc>Verifies that the length of the given item is correct.</doc>
+<arguments>
+<arg>${pass}</arg>
+<arg>5</arg>
+</arguments>
+<msg timestamp="20200611 18:28:43.590" level="INFO">Length is 5</msg>
+<status status="PASS" starttime="20200611 18:28:43.589" endtime="20200611 18:28:43.590"></status>
+</kw>
+<kw name="Password" library="FakerLibrary">
+<doc>Generate a random password of the specified ``length``.</doc>
+<arguments>
+<arg>special_chars=${False}</arg>
+</arguments>
+<assign>
+<var>${pass}</var>
+</assign>
+<msg timestamp="20200611 18:28:43.591" level="INFO">${pass} = 0F4VyFzuBf</msg>
+<status status="PASS" starttime="20200611 18:28:43.590" endtime="20200611 18:28:43.591"></status>
+</kw>
+<kw name="Password" library="FakerLibrary">
+<doc>Generate a random password of the specified ``length``.</doc>
+<arguments>
+<arg>special_chars=${True}</arg>
+</arguments>
+<assign>
+<var>${pass}</var>
+</assign>
+<msg timestamp="20200611 18:28:43.592" level="INFO">${pass} = C_Q7c+Vr!C</msg>
+<status status="PASS" starttime="20200611 18:28:43.591" endtime="20200611 18:28:43.592"></status>
+</kw>
+<kw name="Password" library="FakerLibrary">
+<doc>Generate a random password of the specified ``length``.</doc>
+<arguments>
+<arg>digits=${True}</arg>
+</arguments>
+<assign>
+<var>${pass}</var>
+</assign>
+<msg timestamp="20200611 18:28:43.593" level="INFO">${pass} = v%D&amp;7FxxBG</msg>
+<status status="PASS" starttime="20200611 18:28:43.592" endtime="20200611 18:28:43.593"></status>
+</kw>
+<kw name="Password" library="FakerLibrary">
+<doc>Generate a random password of the specified ``length``.</doc>
+<arguments>
+<arg>digits=${False}</arg>
+</arguments>
+<assign>
+<var>${pass}</var>
+</assign>
+<msg timestamp="20200611 18:28:43.594" level="INFO">${pass} = !_$WcbxjBL</msg>
+<status status="PASS" starttime="20200611 18:28:43.593" endtime="20200611 18:28:43.594"></status>
+</kw>
+<kw name="Password" library="FakerLibrary">
+<doc>Generate a random password of the specified ``length``.</doc>
+<arguments>
+<arg>digits=True</arg>
+</arguments>
+<assign>
+<var>${pass}</var>
+</assign>
+<msg timestamp="20200611 18:28:43.595" level="INFO">${pass} = ^bsoCWt@3t</msg>
+<status status="PASS" starttime="20200611 18:28:43.594" endtime="20200611 18:28:43.595"></status>
+</kw>
+<kw name="Password" library="FakerLibrary">
+<doc>Generate a random password of the specified ``length``.</doc>
+<arguments>
+<arg>digits=False</arg>
+</arguments>
+<assign>
+<var>${pass}</var>
+</assign>
+<msg timestamp="20200611 18:28:43.598" level="INFO">${pass} = mo&amp;@@Ufxp#</msg>
+<status status="PASS" starttime="20200611 18:28:43.595" endtime="20200611 18:28:43.598"></status>
+</kw>
+<kw name="Password" library="FakerLibrary">
+<doc>Generate a random password of the specified ``length``.</doc>
+<arguments>
+<arg>upper_case=${True}</arg>
+</arguments>
+<assign>
+<var>${pass}</var>
+</assign>
+<msg timestamp="20200611 18:28:43.599" level="INFO">${pass} = y#0VRGbE8_</msg>
+<status status="PASS" starttime="20200611 18:28:43.598" endtime="20200611 18:28:43.599"></status>
+</kw>
+<kw name="Password" library="FakerLibrary">
+<doc>Generate a random password of the specified ``length``.</doc>
+<arguments>
+<arg>lower_case=${True}</arg>
+</arguments>
+<assign>
+<var>${pass}</var>
+</assign>
+<msg timestamp="20200611 18:28:43.600" level="INFO">${pass} = BO+2qPpf#I</msg>
+<status status="PASS" starttime="20200611 18:28:43.600" endtime="20200611 18:28:43.600"></status>
+</kw>
+<kw name="Password" library="FakerLibrary">
+<doc>Generate a random password of the specified ``length``.</doc>
+<arguments>
+<arg>digits=${False}</arg>
+</arguments>
+<assign>
+<var>${pass}</var>
+</assign>
+<msg timestamp="20200611 18:28:43.602" level="INFO">${pass} = +Pr)QXMx*h</msg>
+<status status="PASS" starttime="20200611 18:28:43.601" endtime="20200611 18:28:43.602"></status>
+</kw>
+<kw name="Password" library="FakerLibrary">
+<doc>Generate a random password of the specified ``length``.</doc>
+<arguments>
+<arg>5823</arg>
+<arg>${True}</arg>
+<arg>${False}</arg>
+<arg>${True}</arg>
+<arg>${True}</arg>
+</arguments>
+<assign>
+<var>${pass}</var>
+</assign>
+<msg timestamp="20200611 18:28:43.606" level="INFO">${pass} = RslGrLL%aPg+mu@id!BnIyVTgQFFJ_uS*ZMSBA#s_DQglllgKzNHh(mJ)IsVof#GBMDpS%nKq_E^&amp;ldM@@rnWAXZRON#bfx@a&amp;d&amp;FLEJkaBiDWMpckdcgBYxQIkOQN#dYaPqWNNth!znnaCfpm@v(u!)G&amp;_JI(IfVCxLafRnuRUqlMF(MsNRuIF#zvhfBp$Qk$w&amp;_fFc...</msg>
+<status status="PASS" starttime="20200611 18:28:43.602" endtime="20200611 18:28:43.607"></status>
+</kw>
+<kw name="Length Should Be" library="BuiltIn">
+<doc>Verifies that the length of the given item is correct.</doc>
+<arguments>
+<arg>${pass}</arg>
+<arg>5823</arg>
+</arguments>
+<msg timestamp="20200611 18:28:43.607" level="INFO">Length is 5823</msg>
+<status status="PASS" starttime="20200611 18:28:43.607" endtime="20200611 18:28:43.608"></status>
+</kw>
+<kw name="Password" library="FakerLibrary">
+<doc>Generate a random password of the specified ``length``.</doc>
+<arguments>
+<arg>${5823}</arg>
+<arg>${True}</arg>
+<arg>${False}</arg>
+<arg>${True}</arg>
+<arg>${True}</arg>
+</arguments>
+<assign>
+<var>${pass}</var>
+</assign>
+<msg timestamp="20200611 18:28:43.613" level="INFO">${pass} = dINc^GtwWEre&amp;KlX#yit+k&amp;tqzb#)DSptIycZx@Cq+l+fjhHiLYgXBbN@yYKTVwihOB+aE(_MJIQid@W#UCA_!qr&amp;W#(RaEUj(+_scIaR$v_+t!d!!amPYLyzdsG_BKp$OVX&amp;v%TKulpvsNmMgncbVFVB*i_U(iTNsUvWy(ZI_GVhnxgkOoib*M)udW(xISX%wfQxhWq...</msg>
+<status status="PASS" starttime="20200611 18:28:43.608" endtime="20200611 18:28:43.613"></status>
+</kw>
+<kw name="Length Should Be" library="BuiltIn">
+<doc>Verifies that the length of the given item is correct.</doc>
+<arguments>
+<arg>${pass}</arg>
+<arg>5823</arg>
+</arguments>
+<msg timestamp="20200611 18:28:43.614" level="INFO">Length is 5823</msg>
+<status status="PASS" starttime="20200611 18:28:43.613" endtime="20200611 18:28:43.614"></status>
+</kw>
+<tags>
+<tag>faker</tag>
+</tags>
+<timeout value="1 minute"></timeout>
+<status status="PASS" starttime="20200611 18:28:43.584" endtime="20200611 18:28:43.614" critical="yes"></status>
+</test>
+<status status="PASS" starttime="20200611 18:28:43.182" endtime="20200611 18:28:43.615"></status>
+</suite>
+<suite id="s1-s1-s2" name="Requests" source="/var/jenkins_home/workspace/robot-grafana/test/requests.robot">
+<test id="s1-s1-s2-t1" name="Get Requests">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>google</arg>
+<arg>http://www.google.com</arg>
+</arguments>
+<msg timestamp="20200611 18:28:43.753" level="INFO">Creating Session using : alias=google, url=http://www.google.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200611 18:28:43.753" endtime="20200611 18:28:43.754"></status>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>bing</arg>
+<arg>https://www.bing.com</arg>
+<arg>verify=True</arg>
+</arguments>
+<msg timestamp="20200611 18:28:43.755" level="INFO">Creating Session using : alias=bing, url=https://www.bing.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
+<status status="PASS" starttime="20200611 18:28:43.754" endtime="20200611 18:28:43.755"></status>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<doc>Send a GET request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>google</arg>
+<arg>/</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20200611 18:28:43.756" level="INFO">GET Request using : uri=/, params=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.23.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+data=None 
+json=None</msg>
+<msg timestamp="20200611 18:28:43.907" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20200611 18:28:43.755" endtime="20200611 18:28:43.907"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${resp.status_code}</arg>
+<arg>200</arg>
+</arguments>
+<msg timestamp="20200611 18:28:43.909" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200611 18:28:43.908" endtime="20200611 18:28:43.909"></status>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<doc>Send a GET request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>bing</arg>
+<arg>/</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20200611 18:28:43.910" level="INFO">GET Request using : uri=/, params=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.23.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+data=None 
+json=None</msg>
+<msg timestamp="20200611 18:28:44.119" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20200611 18:28:43.909" endtime="20200611 18:28:44.119"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${resp.status_code}</arg>
+<arg>200</arg>
+</arguments>
+<msg timestamp="20200611 18:28:44.120" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200611 18:28:44.120" endtime="20200611 18:28:44.121"></status>
+</kw>
+<tags>
+<tag>get</tag>
+</tags>
+<status status="PASS" starttime="20200611 18:28:43.752" endtime="20200611 18:28:44.121" critical="yes"></status>
+</test>
+<test id="s1-s1-s2-t2" name="Get Requests with Url Parameters">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>httpbin</arg>
+<arg>http://httpbin.org</arg>
+</arguments>
+<msg timestamp="20200611 18:28:44.122" level="INFO">Creating Session using : alias=httpbin, url=http://httpbin.org, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200611 18:28:44.122" endtime="20200611 18:28:44.124"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>key=value</arg>
+<arg>key2=value2</arg>
+</arguments>
+<assign>
+<var>&amp;{params}</var>
+</assign>
+<msg timestamp="20200611 18:28:44.125" level="INFO">&amp;{params} = { key=value | key2=value2 }</msg>
+<status status="PASS" starttime="20200611 18:28:44.124" endtime="20200611 18:28:44.125"></status>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<doc>Send a GET request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>httpbin</arg>
+<arg>/get</arg>
+<arg>params=${params}</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20200611 18:28:44.126" level="INFO">GET Request using : uri=/get, params={'key': 'value', 'key2': 'value2'}, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.23.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+data=None 
+json=None</msg>
+<msg timestamp="20200611 18:28:44.701" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20200611 18:28:44.125" endtime="20200611 18:28:44.701"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${resp.status_code}</arg>
+<arg>200</arg>
+</arguments>
+<msg timestamp="20200611 18:28:44.702" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200611 18:28:44.702" endtime="20200611 18:28:44.702"></status>
+</kw>
+<kw name="To Json" library="RequestsLibrary">
+<doc>Convert a string to a JSON object</doc>
+<arguments>
+<arg>${resp.content}</arg>
+</arguments>
+<assign>
+<var>${jsondata}</var>
+</assign>
+<msg timestamp="20200611 18:28:44.703" level="INFO">To JSON using : content={
+  "args": {
+    "key": "value", 
+    "key2": "value2"
+  }, 
+  "headers": {
+    "Accept": "*/*", 
+    "Accept-Encoding": "gzip, deflate", 
+    "Host": "httpbin.org", 
+    "User-Agent": "python-requests/2.23.0", 
+    "X-Amzn-Trace-Id": "Root=1-5ee277dc-36d9148007c0dca0a00a74e0"
+  }, 
+  "origin": "180.190.90.77", 
+  "url": "http://httpbin.org/get?key=value&amp;key2=value2"
+}
+ </msg>
+<msg timestamp="20200611 18:28:44.703" level="INFO">To JSON using : pretty_print=False </msg>
+<msg timestamp="20200611 18:28:44.703" level="INFO">${jsondata} = {'args': {'key': 'value', 'key2': 'value2'}, 'headers': {'Accept': '*/*', 'Accept-Encoding': 'gzip, deflate', 'Host': 'httpbin.org', 'User-Agent': 'python-requests/2.23.0', 'X-Amzn-Trace-Id': 'Root=1-...</msg>
+<status status="PASS" starttime="20200611 18:28:44.702" endtime="20200611 18:28:44.703"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${jsondata['args']}</arg>
+<arg>${params}</arg>
+</arguments>
+<msg timestamp="20200611 18:28:44.704" level="INFO">Argument types are:
+&lt;class 'dict'&gt;
+&lt;class 'robot.utils.dotdict.DotDict'&gt;</msg>
+<status status="PASS" starttime="20200611 18:28:44.703" endtime="20200611 18:28:44.704"></status>
+</kw>
+<tags>
+<tag>get</tag>
+</tags>
+<status status="PASS" starttime="20200611 18:28:44.121" endtime="20200611 18:28:44.704" critical="yes"></status>
+</test>
+<test id="s1-s1-s2-t3" name="Get HTTPS &amp; Verify Cert">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>httpbin</arg>
+<arg>https://httpbin.org</arg>
+<arg>verify=True</arg>
+</arguments>
+<msg timestamp="20200611 18:28:44.705" level="INFO">Creating Session using : alias=httpbin, url=https://httpbin.org, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
+<status status="PASS" starttime="20200611 18:28:44.705" endtime="20200611 18:28:44.706"></status>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<doc>Send a GET request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>httpbin</arg>
+<arg>/get</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20200611 18:28:44.707" level="INFO">GET Request using : uri=/get, params=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.23.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+data=None 
+json=None</msg>
+<msg timestamp="20200611 18:28:45.750" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20200611 18:28:44.706" endtime="20200611 18:28:45.750"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${resp.status_code}</arg>
+<arg>200</arg>
+</arguments>
+<msg timestamp="20200611 18:28:45.752" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200611 18:28:45.751" endtime="20200611 18:28:45.753"></status>
+</kw>
+<tags>
+<tag>get</tag>
+<tag>get-cert</tag>
+</tags>
+<status status="PASS" starttime="20200611 18:28:44.704" endtime="20200611 18:28:45.754" critical="yes"></status>
+</test>
+<test id="s1-s1-s2-t4" name="Post Request With URL Params">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>httpbin</arg>
+<arg>http://httpbin.org</arg>
+</arguments>
+<msg timestamp="20200611 18:28:45.756" level="INFO">Creating Session using : alias=httpbin, url=http://httpbin.org, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200611 18:28:45.756" endtime="20200611 18:28:45.757"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>key=value</arg>
+<arg>key2=value2</arg>
+</arguments>
+<assign>
+<var>&amp;{params}</var>
+</assign>
+<msg timestamp="20200611 18:28:45.758" level="INFO">&amp;{params} = { key=value | key2=value2 }</msg>
+<status status="PASS" starttime="20200611 18:28:45.758" endtime="20200611 18:28:45.759"></status>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>httpbin</arg>
+<arg>/post</arg>
+<arg>params=${params}</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20200611 18:28:45.780" level="INFO">POST Request using : uri=/post, params={'key': 'value', 'key2': 'value2'}, files=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.23.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+data=None 
+json=None</msg>
+<msg timestamp="20200611 18:28:46.294" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20200611 18:28:45.759" endtime="20200611 18:28:46.294"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${resp.status_code}</arg>
+<arg>200</arg>
+</arguments>
+<msg timestamp="20200611 18:28:46.295" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200611 18:28:46.294" endtime="20200611 18:28:46.296"></status>
+</kw>
+<tags>
+<tag>post</tag>
+</tags>
+<status status="PASS" starttime="20200611 18:28:45.755" endtime="20200611 18:28:46.296" critical="yes"></status>
+</test>
+<test id="s1-s1-s2-t5" name="Post Request With No Data">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>httpbin</arg>
+<arg>http://httpbin.org</arg>
+</arguments>
+<msg timestamp="20200611 18:28:46.299" level="INFO">Creating Session using : alias=httpbin, url=http://httpbin.org, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200611 18:28:46.298" endtime="20200611 18:28:46.300"></status>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>httpbin</arg>
+<arg>/post</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20200611 18:28:46.302" level="INFO">POST Request using : uri=/post, params=None, files=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.23.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+data=None 
+json=None</msg>
+<msg timestamp="20200611 18:28:46.862" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20200611 18:28:46.301" endtime="20200611 18:28:46.863"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${resp.status_code}</arg>
+<arg>200</arg>
+</arguments>
+<msg timestamp="20200611 18:28:46.864" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200611 18:28:46.863" endtime="20200611 18:28:46.864"></status>
+</kw>
+<tags>
+<tag>post</tag>
+</tags>
+<status status="PASS" starttime="20200611 18:28:46.297" endtime="20200611 18:28:46.865" critical="yes"></status>
+</test>
+<test id="s1-s1-s2-t6" name="Put Request With No Data">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>httpbin</arg>
+<arg>http://httpbin.org</arg>
+</arguments>
+<msg timestamp="20200611 18:28:46.869" level="INFO">Creating Session using : alias=httpbin, url=http://httpbin.org, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200611 18:28:46.868" endtime="20200611 18:28:46.870"></status>
+</kw>
+<kw name="Put Request" library="RequestsLibrary">
+<doc>Send a PUT request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>httpbin</arg>
+<arg>/put</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20200611 18:28:46.872" level="INFO">PUT Request using : uri=/put, params=None, files=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.23.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+data=None 
+json=None</msg>
+<msg timestamp="20200611 18:28:47.329" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20200611 18:28:46.871" endtime="20200611 18:28:47.329"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${resp.status_code}</arg>
+<arg>200</arg>
+</arguments>
+<msg timestamp="20200611 18:28:47.330" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200611 18:28:47.330" endtime="20200611 18:28:47.330"></status>
+</kw>
+<tags>
+<tag>put</tag>
+</tags>
+<status status="PASS" starttime="20200611 18:28:46.866" endtime="20200611 18:28:47.331" critical="yes"></status>
+</test>
+<test id="s1-s1-s2-t7" name="Post Request With No Dictionary">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>httpbin</arg>
+<arg>http://httpbin.org</arg>
+<arg>debug=3</arg>
+</arguments>
+<msg timestamp="20200611 18:28:47.332" level="INFO">Creating Session using : alias=httpbin, url=http://httpbin.org, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=3 </msg>
+<status status="PASS" starttime="20200611 18:28:47.332" endtime="20200611 18:28:47.333"></status>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<arguments>
+<arg>${data}</arg>
+<arg>some content</arg>
+</arguments>
+<msg timestamp="20200611 18:28:47.335" level="INFO">${data} = some content</msg>
+<status status="PASS" starttime="20200611 18:28:47.334" endtime="20200611 18:28:47.335"></status>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>httpbin</arg>
+<arg>/post</arg>
+<arg>data=${data}</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20200611 18:28:47.336" level="INFO">POST Request using : uri=/post, params=None, files=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.23.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+data=None 
+json=None</msg>
+<msg timestamp="20200611 18:28:47.875" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20200611 18:28:47.336" endtime="20200611 18:28:47.875"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${resp.status_code}</arg>
+<arg>200</arg>
+</arguments>
+<msg timestamp="20200611 18:28:47.876" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200611 18:28:47.875" endtime="20200611 18:28:47.877"></status>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${resp.text}</arg>
+<arg>${data}</arg>
+</arguments>
+<status status="PASS" starttime="20200611 18:28:47.877" endtime="20200611 18:28:47.878"></status>
+</kw>
+<tags>
+<tag>post</tag>
+</tags>
+<status status="PASS" starttime="20200611 18:28:47.331" endtime="20200611 18:28:47.879" critical="yes"></status>
+</test>
+<test id="s1-s1-s2-t8" name="Put Request With URL Params">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>httpbin</arg>
+<arg>http://httpbin.org</arg>
+</arguments>
+<msg timestamp="20200611 18:28:47.880" level="INFO">Creating Session using : alias=httpbin, url=http://httpbin.org, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200611 18:28:47.880" endtime="20200611 18:28:47.881"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>key=value</arg>
+<arg>key2=value2</arg>
+</arguments>
+<assign>
+<var>&amp;{params}</var>
+</assign>
+<msg timestamp="20200611 18:28:47.882" level="INFO">&amp;{params} = { key=value | key2=value2 }</msg>
+<status status="PASS" starttime="20200611 18:28:47.881" endtime="20200611 18:28:47.882"></status>
+</kw>
+<kw name="Put Request" library="RequestsLibrary">
+<doc>Send a PUT request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>httpbin</arg>
+<arg>/put</arg>
+<arg>params=${params}</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20200611 18:28:47.882" level="INFO">PUT Request using : uri=/put, params={'key': 'value', 'key2': 'value2'}, files=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.23.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+data=None 
+json=None</msg>
+<msg timestamp="20200611 18:28:48.290" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20200611 18:28:47.882" endtime="20200611 18:28:48.290"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${resp.status_code}</arg>
+<arg>200</arg>
+</arguments>
+<msg timestamp="20200611 18:28:48.291" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200611 18:28:48.290" endtime="20200611 18:28:48.292"></status>
+</kw>
+<tags>
+<tag>put</tag>
+</tags>
+<status status="PASS" starttime="20200611 18:28:47.879" endtime="20200611 18:28:48.292" critical="yes"></status>
+</test>
+<test id="s1-s1-s2-t9" name="Put Request With No Dictionary">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>httpbin</arg>
+<arg>http://httpbin.org</arg>
+</arguments>
+<msg timestamp="20200611 18:28:48.295" level="INFO">Creating Session using : alias=httpbin, url=http://httpbin.org, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200611 18:28:48.294" endtime="20200611 18:28:48.296"></status>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<arguments>
+<arg>${data}</arg>
+<arg>some content</arg>
+</arguments>
+<msg timestamp="20200611 18:28:48.298" level="INFO">${data} = some content</msg>
+<status status="PASS" starttime="20200611 18:28:48.296" endtime="20200611 18:28:48.298"></status>
+</kw>
+<kw name="Put Request" library="RequestsLibrary">
+<doc>Send a PUT request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>httpbin</arg>
+<arg>/put</arg>
+<arg>data=${data}</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20200611 18:28:48.299" level="INFO">PUT Request using : uri=/put, params=None, files=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.23.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+data=None 
+json=None</msg>
+<msg timestamp="20200611 18:28:48.765" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20200611 18:28:48.298" endtime="20200611 18:28:48.765"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${resp.status_code}</arg>
+<arg>200</arg>
+</arguments>
+<msg timestamp="20200611 18:28:48.767" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200611 18:28:48.766" endtime="20200611 18:28:48.767"></status>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${resp.text}</arg>
+<arg>${data}</arg>
+</arguments>
+<status status="PASS" starttime="20200611 18:28:48.768" endtime="20200611 18:28:48.769"></status>
+</kw>
+<tags>
+<tag>put</tag>
+</tags>
+<status status="PASS" starttime="20200611 18:28:48.293" endtime="20200611 18:28:48.770" critical="yes"></status>
+</test>
+<test id="s1-s1-s2-t10" name="Post Requests">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>httpbin</arg>
+<arg>http://httpbin.org</arg>
+</arguments>
+<msg timestamp="20200611 18:28:48.772" level="INFO">Creating Session using : alias=httpbin, url=http://httpbin.org, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200611 18:28:48.771" endtime="20200611 18:28:48.773"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>name=bulkan</arg>
+<arg>surname=evcimen</arg>
+</arguments>
+<assign>
+<var>&amp;{data}</var>
+</assign>
+<msg timestamp="20200611 18:28:48.774" level="INFO">&amp;{data} = { name=bulkan | surname=evcimen }</msg>
+<status status="PASS" starttime="20200611 18:28:48.773" endtime="20200611 18:28:48.774"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/x-www-form-urlencoded</arg>
+</arguments>
+<assign>
+<var>&amp;{headers}</var>
+</assign>
+<msg timestamp="20200611 18:28:48.775" level="INFO">&amp;{headers} = { Content-Type=application/x-www-form-urlencoded }</msg>
+<status status="PASS" starttime="20200611 18:28:48.774" endtime="20200611 18:28:48.775"></status>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>httpbin</arg>
+<arg>/post</arg>
+<arg>data=${data}</arg>
+<arg>headers=${headers}</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20200611 18:28:48.776" level="INFO">POST Request using : uri=/post, params=None, files=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.23.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded'} 
+data=name=bulkan&amp;surname=evcimen 
+json=None</msg>
+<msg timestamp="20200611 18:28:49.211" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20200611 18:28:48.775" endtime="20200611 18:28:49.211"></status>
+</kw>
+<kw name="Dictionary Should Contain Value" library="Collections">
+<doc>Fails if ``value`` is not found from ``dictionary``.</doc>
+<arguments>
+<arg>${resp.json()['form']}</arg>
+<arg>bulkan</arg>
+</arguments>
+<status status="PASS" starttime="20200611 18:28:49.211" endtime="20200611 18:28:49.212"></status>
+</kw>
+<kw name="Dictionary Should Contain Value" library="Collections">
+<doc>Fails if ``value`` is not found from ``dictionary``.</doc>
+<arguments>
+<arg>${resp.json()['form']}</arg>
+<arg>evcimen</arg>
+</arguments>
+<status status="PASS" starttime="20200611 18:28:49.212" endtime="20200611 18:28:49.213"></status>
+</kw>
+<tags>
+<tag>post</tag>
+</tags>
+<status status="PASS" starttime="20200611 18:28:48.770" endtime="20200611 18:28:49.213" critical="yes"></status>
+</test>
+<test id="s1-s1-s2-t11" name="Post With Unicode Data">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>httpbin</arg>
+<arg>http://httpbin.org</arg>
+<arg>debug=3</arg>
+</arguments>
+<msg timestamp="20200611 18:28:49.215" level="INFO">Creating Session using : alias=httpbin, url=http://httpbin.org, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=3 </msg>
+<status status="PASS" starttime="20200611 18:28:49.215" endtime="20200611 18:28:49.216"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>name=度假村</arg>
+</arguments>
+<assign>
+<var>&amp;{data}</var>
+</assign>
+<msg timestamp="20200611 18:28:49.217" level="INFO">&amp;{data} = { name=度假村 }</msg>
+<status status="PASS" starttime="20200611 18:28:49.217" endtime="20200611 18:28:49.217"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/x-www-form-urlencoded</arg>
+</arguments>
+<assign>
+<var>&amp;{headers}</var>
+</assign>
+<msg timestamp="20200611 18:28:49.219" level="INFO">&amp;{headers} = { Content-Type=application/x-www-form-urlencoded }</msg>
+<status status="PASS" starttime="20200611 18:28:49.218" endtime="20200611 18:28:49.219"></status>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>httpbin</arg>
+<arg>/post</arg>
+<arg>data=${data}</arg>
+<arg>headers=${headers}</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20200611 18:28:49.221" level="INFO">POST Request using : uri=/post, params=None, files=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.23.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded'} 
+data=name=%E5%BA%A6%E5%81%87%E6%9D%91 
+json=None</msg>
+<msg timestamp="20200611 18:28:49.663" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20200611 18:28:49.220" endtime="20200611 18:28:49.664"></status>
+</kw>
+<kw name="Dictionary Should Contain Value" library="Collections">
+<doc>Fails if ``value`` is not found from ``dictionary``.</doc>
+<arguments>
+<arg>${resp.json()['form']}</arg>
+<arg>度假村</arg>
+</arguments>
+<status status="PASS" starttime="20200611 18:28:49.664" endtime="20200611 18:28:49.666"></status>
+</kw>
+<tags>
+<tag>post</tag>
+</tags>
+<status status="PASS" starttime="20200611 18:28:49.214" endtime="20200611 18:28:49.667" critical="yes"></status>
+</test>
+<test id="s1-s1-s2-t12" name="Post Request With Unicode Data">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>httpbin</arg>
+<arg>http://httpbin.org</arg>
+<arg>debug=3</arg>
+</arguments>
+<msg timestamp="20200611 18:28:49.673" level="INFO">Creating Session using : alias=httpbin, url=http://httpbin.org, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=3 </msg>
+<status status="PASS" starttime="20200611 18:28:49.671" endtime="20200611 18:28:49.674"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>name=度假村</arg>
+</arguments>
+<assign>
+<var>&amp;{data}</var>
+</assign>
+<msg timestamp="20200611 18:28:49.675" level="INFO">&amp;{data} = { name=度假村 }</msg>
+<status status="PASS" starttime="20200611 18:28:49.674" endtime="20200611 18:28:49.675"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/x-www-form-urlencoded</arg>
+</arguments>
+<assign>
+<var>&amp;{headers}</var>
+</assign>
+<msg timestamp="20200611 18:28:49.677" level="INFO">&amp;{headers} = { Content-Type=application/x-www-form-urlencoded }</msg>
+<status status="PASS" starttime="20200611 18:28:49.675" endtime="20200611 18:28:49.677"></status>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>httpbin</arg>
+<arg>/post</arg>
+<arg>data=${data}</arg>
+<arg>headers=${headers}</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20200611 18:28:49.678" level="INFO">POST Request using : uri=/post, params=None, files=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.23.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded'} 
+data=name=%E5%BA%A6%E5%81%87%E6%9D%91 
+json=None</msg>
+<msg timestamp="20200611 18:28:50.173" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20200611 18:28:49.677" endtime="20200611 18:28:50.174"></status>
+</kw>
+<kw name="Dictionary Should Contain Value" library="Collections">
+<doc>Fails if ``value`` is not found from ``dictionary``.</doc>
+<arguments>
+<arg>${resp.json()['form']}</arg>
+<arg>度假村</arg>
+</arguments>
+<status status="PASS" starttime="20200611 18:28:50.174" endtime="20200611 18:28:50.176"></status>
+</kw>
+<tags>
+<tag>post</tag>
+</tags>
+<status status="PASS" starttime="20200611 18:28:49.669" endtime="20200611 18:28:50.176" critical="yes"></status>
+</test>
+<test id="s1-s1-s2-t13" name="Post Request With Data and File">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>httpbin</arg>
+<arg>http://httpbin.org</arg>
+</arguments>
+<msg timestamp="20200611 18:28:50.178" level="INFO">Creating Session using : alias=httpbin, url=http://httpbin.org, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200611 18:28:50.178" endtime="20200611 18:28:50.179"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>name=mallikarjunarao</arg>
+<arg>surname=kosuri</arg>
+</arguments>
+<assign>
+<var>&amp;{data}</var>
+</assign>
+<msg timestamp="20200611 18:28:50.181" level="INFO">&amp;{data} = { name=mallikarjunarao | surname=kosuri }</msg>
+<status status="PASS" starttime="20200611 18:28:50.180" endtime="20200611 18:28:50.181"></status>
+</kw>
+<kw name="Create File" library="OperatingSystem">
+<doc>Creates a file with the given content and encoding.</doc>
+<arguments>
+<arg>foobar.txt</arg>
+<arg>content=foobar</arg>
+</arguments>
+<msg timestamp="20200611 18:28:50.182" level="INFO" html="yes">Created file '&lt;a href="file:///var/jenkins_home/workspace/robot-grafana/foobar.txt"&gt;/var/jenkins_home/workspace/robot-grafana/foobar.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20200611 18:28:50.181" endtime="20200611 18:28:50.182"></status>
+</kw>
+<kw name="Get File" library="OperatingSystem">
+<doc>Returns the contents of a specified file.</doc>
+<arguments>
+<arg>foobar.txt</arg>
+</arguments>
+<assign>
+<var>${file_data}</var>
+</assign>
+<msg timestamp="20200611 18:28:50.183" level="INFO" html="yes">Getting file '&lt;a href="file:///var/jenkins_home/workspace/robot-grafana/foobar.txt"&gt;/var/jenkins_home/workspace/robot-grafana/foobar.txt&lt;/a&gt;'.</msg>
+<msg timestamp="20200611 18:28:50.183" level="INFO">${file_data} = foobar</msg>
+<status status="PASS" starttime="20200611 18:28:50.183" endtime="20200611 18:28:50.183"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>file=${file_data}</arg>
+</arguments>
+<assign>
+<var>&amp;{files}</var>
+</assign>
+<msg timestamp="20200611 18:28:50.184" level="INFO">&amp;{files} = { file=foobar }</msg>
+<status status="PASS" starttime="20200611 18:28:50.184" endtime="20200611 18:28:50.184"></status>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>httpbin</arg>
+<arg>/post</arg>
+<arg>files=${files}</arg>
+<arg>data=${data}</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20200611 18:28:50.185" level="INFO">POST Request using : uri=/post, params=None, files={'file': 'foobar'}, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.23.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+data=None 
+json=None</msg>
+<msg timestamp="20200611 18:28:50.643" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20200611 18:28:50.184" endtime="20200611 18:28:50.643"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${resp.status_code}</arg>
+<arg>200</arg>
+</arguments>
+<msg timestamp="20200611 18:28:50.645" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200611 18:28:50.644" endtime="20200611 18:28:50.645"></status>
+</kw>
+<tags>
+<tag>post</tag>
+</tags>
+<status status="PASS" starttime="20200611 18:28:50.177" endtime="20200611 18:28:50.645" critical="yes"></status>
+</test>
+<test id="s1-s1-s2-t14" name="Put Requests">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>httpbin</arg>
+<arg>http://httpbin.org</arg>
+</arguments>
+<msg timestamp="20200611 18:28:50.647" level="INFO">Creating Session using : alias=httpbin, url=http://httpbin.org, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200611 18:28:50.647" endtime="20200611 18:28:50.648"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>name=bulkan</arg>
+<arg>surname=evcimen</arg>
+</arguments>
+<assign>
+<var>&amp;{data}</var>
+</assign>
+<msg timestamp="20200611 18:28:50.649" level="INFO">&amp;{data} = { name=bulkan | surname=evcimen }</msg>
+<status status="PASS" starttime="20200611 18:28:50.649" endtime="20200611 18:28:50.649"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/x-www-form-urlencoded</arg>
+</arguments>
+<assign>
+<var>&amp;{headers}</var>
+</assign>
+<msg timestamp="20200611 18:28:50.650" level="INFO">&amp;{headers} = { Content-Type=application/x-www-form-urlencoded }</msg>
+<status status="PASS" starttime="20200611 18:28:50.650" endtime="20200611 18:28:50.650"></status>
+</kw>
+<kw name="Put Request" library="RequestsLibrary">
+<doc>Send a PUT request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>httpbin</arg>
+<arg>/put</arg>
+<arg>data=${data}</arg>
+<arg>headers=${headers}</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20200611 18:28:50.651" level="INFO">PUT Request using : uri=/put, params=None, files=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.23.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded'} 
+data=name=bulkan&amp;surname=evcimen 
+json=None</msg>
+<msg timestamp="20200611 18:28:51.111" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20200611 18:28:50.651" endtime="20200611 18:28:51.111"></status>
+</kw>
+<kw name="Dictionary Should Contain Value" library="Collections">
+<doc>Fails if ``value`` is not found from ``dictionary``.</doc>
+<arguments>
+<arg>${resp.json()['form']}</arg>
+<arg>bulkan</arg>
+</arguments>
+<status status="PASS" starttime="20200611 18:28:51.112" endtime="20200611 18:28:51.113"></status>
+</kw>
+<kw name="Dictionary Should Contain Value" library="Collections">
+<doc>Fails if ``value`` is not found from ``dictionary``.</doc>
+<arguments>
+<arg>${resp.json()['form']}</arg>
+<arg>evcimen</arg>
+</arguments>
+<status status="PASS" starttime="20200611 18:28:51.114" endtime="20200611 18:28:51.115"></status>
+</kw>
+<tags>
+<tag>put</tag>
+</tags>
+<status status="PASS" starttime="20200611 18:28:50.646" endtime="20200611 18:28:51.115" critical="yes"></status>
+</test>
+<test id="s1-s1-s2-t15" name="Head Request">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>httpbin</arg>
+<arg>http://httpbin.org</arg>
+</arguments>
+<msg timestamp="20200611 18:28:51.117" level="INFO">Creating Session using : alias=httpbin, url=http://httpbin.org, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200611 18:28:51.116" endtime="20200611 18:28:51.117"></status>
+</kw>
+<kw name="Head Request" library="RequestsLibrary">
+<doc>Send a HEAD request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>httpbin</arg>
+<arg>/headers</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20200611 18:28:51.118" level="INFO">HEAD Request using : uri=/headers, allow_redirects=False, timeout=None
+headers={'User-Agent': 'python-requests/2.23.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+data=None 
+json=None</msg>
+<msg timestamp="20200611 18:28:51.567" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20200611 18:28:51.118" endtime="20200611 18:28:51.567"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${resp.status_code}</arg>
+<arg>200</arg>
+</arguments>
+<msg timestamp="20200611 18:28:51.569" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200611 18:28:51.568" endtime="20200611 18:28:51.569"></status>
+</kw>
+<tags>
+<tag>head</tag>
+</tags>
+<status status="PASS" starttime="20200611 18:28:51.116" endtime="20200611 18:28:51.570" critical="yes"></status>
+</test>
+<test id="s1-s1-s2-t16" name="Options Request">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>httpbin</arg>
+<arg>http://httpbin.org</arg>
+</arguments>
+<msg timestamp="20200611 18:28:51.572" level="INFO">Creating Session using : alias=httpbin, url=http://httpbin.org, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200611 18:28:51.571" endtime="20200611 18:28:51.572"></status>
+</kw>
+<kw name="Options Request" library="RequestsLibrary">
+<doc>Send an OPTIONS request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>httpbin</arg>
+<arg>/headers</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20200611 18:28:51.573" level="INFO">OPTIONS Request using : uri=/headers, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.23.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+data=None 
+json=None</msg>
+<msg timestamp="20200611 18:28:52.082" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20200611 18:28:51.573" endtime="20200611 18:28:52.082"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${resp.status_code}</arg>
+<arg>200</arg>
+</arguments>
+<msg timestamp="20200611 18:28:52.084" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200611 18:28:52.083" endtime="20200611 18:28:52.084"></status>
+</kw>
+<kw name="Dictionary Should Contain Key" library="Collections">
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<arguments>
+<arg>${resp.headers}</arg>
+<arg>allow</arg>
+</arguments>
+<status status="PASS" starttime="20200611 18:28:52.084" endtime="20200611 18:28:52.085"></status>
+</kw>
+<tags>
+<tag>options</tag>
+</tags>
+<status status="PASS" starttime="20200611 18:28:51.570" endtime="20200611 18:28:52.086" critical="yes"></status>
+</test>
+<test id="s1-s1-s2-t17" name="Delete Request With URL Params">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>httpbin</arg>
+<arg>http://httpbin.org</arg>
+</arguments>
+<msg timestamp="20200611 18:28:52.088" level="INFO">Creating Session using : alias=httpbin, url=http://httpbin.org, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200611 18:28:52.088" endtime="20200611 18:28:52.091"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>key=value</arg>
+<arg>key2=value2</arg>
+</arguments>
+<assign>
+<var>&amp;{params}</var>
+</assign>
+<msg timestamp="20200611 18:28:52.092" level="INFO">&amp;{params} = { key=value | key2=value2 }</msg>
+<status status="PASS" starttime="20200611 18:28:52.091" endtime="20200611 18:28:52.092"></status>
+</kw>
+<kw name="Delete Request" library="RequestsLibrary">
+<doc>Send a DELETE request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>httpbin</arg>
+<arg>/delete</arg>
+<arg>${params}</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20200611 18:28:52.093" level="INFO">DELETE Request using : uri=/delete, params=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.23.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+data=None 
+json=None</msg>
+<msg timestamp="20200611 18:28:52.554" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20200611 18:28:52.092" endtime="20200611 18:28:52.554"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${resp.status_code}</arg>
+<arg>200</arg>
+</arguments>
+<msg timestamp="20200611 18:28:52.555" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200611 18:28:52.554" endtime="20200611 18:28:52.555"></status>
+</kw>
+<tags>
+<tag>delete</tag>
+</tags>
+<status status="PASS" starttime="20200611 18:28:52.086" endtime="20200611 18:28:52.556" critical="yes"></status>
+</test>
+<test id="s1-s1-s2-t18" name="Delete Request With No Data">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>httpbin</arg>
+<arg>http://httpbin.org</arg>
+</arguments>
+<msg timestamp="20200611 18:28:52.557" level="INFO">Creating Session using : alias=httpbin, url=http://httpbin.org, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200611 18:28:52.557" endtime="20200611 18:28:52.558"></status>
+</kw>
+<kw name="Delete Request" library="RequestsLibrary">
+<doc>Send a DELETE request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>httpbin</arg>
+<arg>/delete</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20200611 18:28:52.558" level="INFO">DELETE Request using : uri=/delete, params=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.23.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+data=None 
+json=None</msg>
+<msg timestamp="20200611 18:28:53.015" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20200611 18:28:52.558" endtime="20200611 18:28:53.015"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${resp.status_code}</arg>
+<arg>200</arg>
+</arguments>
+<msg timestamp="20200611 18:28:53.016" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200611 18:28:53.016" endtime="20200611 18:28:53.017"></status>
+</kw>
+<tags>
+<tag>delete</tag>
+</tags>
+<status status="PASS" starttime="20200611 18:28:52.556" endtime="20200611 18:28:53.017" critical="yes"></status>
+</test>
+<test id="s1-s1-s2-t19" name="Delete Request With Data">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>httpbin</arg>
+<arg>http://httpbin.org</arg>
+<arg>debug=3</arg>
+</arguments>
+<msg timestamp="20200611 18:28:53.019" level="INFO">Creating Session using : alias=httpbin, url=http://httpbin.org, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=3 </msg>
+<status status="PASS" starttime="20200611 18:28:53.018" endtime="20200611 18:28:53.019"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>name=bulkan</arg>
+<arg>surname=evcimen</arg>
+</arguments>
+<assign>
+<var>&amp;{data}</var>
+</assign>
+<msg timestamp="20200611 18:28:53.020" level="INFO">&amp;{data} = { name=bulkan | surname=evcimen }</msg>
+<status status="PASS" starttime="20200611 18:28:53.020" endtime="20200611 18:28:53.021"></status>
+</kw>
+<kw name="Delete Request" library="RequestsLibrary">
+<doc>Send a DELETE request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>httpbin</arg>
+<arg>/delete</arg>
+<arg>data=${data}</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20200611 18:28:53.021" level="INFO">DELETE Request using : uri=/delete, params=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.23.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+data=None 
+json=None</msg>
+<msg timestamp="20200611 18:28:53.490" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20200611 18:28:53.021" endtime="20200611 18:28:53.491"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${resp.status_code}</arg>
+<arg>200</arg>
+</arguments>
+<msg timestamp="20200611 18:28:53.494" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200611 18:28:53.492" endtime="20200611 18:28:53.495"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${resp.content}</arg>
+</arguments>
+<msg timestamp="20200611 18:28:53.497" level="INFO">{
+  "args": {}, 
+  "data": "name=bulkan&amp;surname=evcimen", 
+  "files": {}, 
+  "form": {}, 
+  "headers": {
+    "Accept": "*/*", 
+    "Accept-Encoding": "gzip, deflate", 
+    "Content-Length": "27", 
+    "Host": "httpbin.org", 
+    "User-Agent": "python-requests/2.23.0", 
+    "X-Amzn-Trace-Id": "Root=1-5ee277e5-95f4f2b6e917aa473773630e"
+  }, 
+  "json": null, 
+  "origin": "180.190.90.77", 
+  "url": "http://httpbin.org/delete"
+}
+</msg>
+<status status="PASS" starttime="20200611 18:28:53.496" endtime="20200611 18:28:53.497"></status>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Dictionary Should Contain Value</arg>
+<arg>${resp.json()['data']}</arg>
+<arg>bulkan</arg>
+</arguments>
+<status status="PASS" starttime="20200611 18:28:53.497" endtime="20200611 18:28:53.498"></status>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Dictionary Should Contain Value</arg>
+<arg>${resp.json()['data']}</arg>
+<arg>evcimen</arg>
+</arguments>
+<status status="PASS" starttime="20200611 18:28:53.498" endtime="20200611 18:28:53.499"></status>
+</kw>
+<tags>
+<tag>delete</tag>
+</tags>
+<status status="PASS" starttime="20200611 18:28:53.018" endtime="20200611 18:28:53.499" critical="yes"></status>
+</test>
+<test id="s1-s1-s2-t20" name="Patch Requests">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>httpbin</arg>
+<arg>http://httpbin.org</arg>
+</arguments>
+<msg timestamp="20200611 18:28:53.501" level="INFO">Creating Session using : alias=httpbin, url=http://httpbin.org, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200611 18:28:53.500" endtime="20200611 18:28:53.502"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>name=bulkan</arg>
+<arg>surname=evcimen</arg>
+</arguments>
+<assign>
+<var>&amp;{data}</var>
+</assign>
+<msg timestamp="20200611 18:28:53.502" level="INFO">&amp;{data} = { name=bulkan | surname=evcimen }</msg>
+<status status="PASS" starttime="20200611 18:28:53.502" endtime="20200611 18:28:53.502"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/x-www-form-urlencoded</arg>
+</arguments>
+<assign>
+<var>&amp;{headers}</var>
+</assign>
+<msg timestamp="20200611 18:28:53.503" level="INFO">&amp;{headers} = { Content-Type=application/x-www-form-urlencoded }</msg>
+<status status="PASS" starttime="20200611 18:28:53.503" endtime="20200611 18:28:53.503"></status>
+</kw>
+<kw name="Patch Request" library="RequestsLibrary">
+<doc>Send a PATCH request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>httpbin</arg>
+<arg>/patch</arg>
+<arg>data=${data}</arg>
+<arg>headers=${headers}</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20200611 18:28:53.504" level="INFO">PATCH Request using : uri=/patch, params=None, files=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.23.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded'} 
+data=name=bulkan&amp;surname=evcimen 
+json=None</msg>
+<msg timestamp="20200611 18:28:53.974" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20200611 18:28:53.503" endtime="20200611 18:28:53.974"></status>
+</kw>
+<kw name="Dictionary Should Contain Value" library="Collections">
+<doc>Fails if ``value`` is not found from ``dictionary``.</doc>
+<arguments>
+<arg>${resp.json()['form']}</arg>
+<arg>bulkan</arg>
+</arguments>
+<status status="PASS" starttime="20200611 18:28:53.975" endtime="20200611 18:28:53.977"></status>
+</kw>
+<kw name="Dictionary Should Contain Value" library="Collections">
+<doc>Fails if ``value`` is not found from ``dictionary``.</doc>
+<arguments>
+<arg>${resp.json()['form']}</arg>
+<arg>evcimen</arg>
+</arguments>
+<status status="PASS" starttime="20200611 18:28:53.978" endtime="20200611 18:28:53.980"></status>
+</kw>
+<tags>
+<tag>patch</tag>
+</tags>
+<status status="PASS" starttime="20200611 18:28:53.500" endtime="20200611 18:28:53.980" critical="yes"></status>
+</test>
+<test id="s1-s1-s2-t21" name="Get Request With Redirection">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>httpbin</arg>
+<arg>http://httpbin.org</arg>
+<arg>debug=3</arg>
+</arguments>
+<msg timestamp="20200611 18:28:53.982" level="INFO">Creating Session using : alias=httpbin, url=http://httpbin.org, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=3 </msg>
+<status status="PASS" starttime="20200611 18:28:53.982" endtime="20200611 18:28:53.983"></status>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<doc>Send a GET request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>httpbin</arg>
+<arg>/redirect/1</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20200611 18:28:53.984" level="INFO">GET Request using : uri=/redirect/1, params=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.23.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+data=None 
+json=None</msg>
+<msg timestamp="20200611 18:28:54.730" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20200611 18:28:53.983" endtime="20200611 18:28:54.730"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${resp.status_code}</arg>
+<arg>200</arg>
+</arguments>
+<msg timestamp="20200611 18:28:54.732" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200611 18:28:54.731" endtime="20200611 18:28:54.732"></status>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<doc>Send a GET request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>httpbin</arg>
+<arg>/redirect/1</arg>
+<arg>allow_redirects=${true}</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20200611 18:28:54.733" level="INFO">GET Request using : uri=/redirect/1, params=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.23.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+data=None 
+json=None</msg>
+<msg timestamp="20200611 18:28:55.234" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20200611 18:28:54.733" endtime="20200611 18:28:55.234"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${resp.status_code}</arg>
+<arg>200</arg>
+</arguments>
+<msg timestamp="20200611 18:28:55.235" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200611 18:28:55.234" endtime="20200611 18:28:55.236"></status>
+</kw>
+<tags>
+<tag>get</tag>
+</tags>
+<status status="PASS" starttime="20200611 18:28:53.981" endtime="20200611 18:28:55.236" critical="yes"></status>
+</test>
+<test id="s1-s1-s2-t22" name="Get Request Without Redirection">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>httpbin</arg>
+<arg>http://httpbin.org</arg>
+</arguments>
+<msg timestamp="20200611 18:28:55.239" level="INFO">Creating Session using : alias=httpbin, url=http://httpbin.org, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200611 18:28:55.239" endtime="20200611 18:28:55.240"></status>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<doc>Send a GET request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>httpbin</arg>
+<arg>/redirect/1</arg>
+<arg>allow_redirects=${false}</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20200611 18:28:55.241" level="INFO">GET Request using : uri=/redirect/1, params=None, allow_redirects=False, timeout=None
+headers={'User-Agent': 'python-requests/2.23.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+data=None 
+json=None</msg>
+<msg timestamp="20200611 18:28:55.707" level="INFO">${resp} = &lt;Response [302]&gt;</msg>
+<status status="PASS" starttime="20200611 18:28:55.240" endtime="20200611 18:28:55.707"></status>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>${resp.status_code}</arg>
+</arguments>
+<assign>
+<var>${status}</var>
+</assign>
+<msg timestamp="20200611 18:28:55.708" level="INFO">${status} = 302</msg>
+<status status="PASS" starttime="20200611 18:28:55.707" endtime="20200611 18:28:55.708"></status>
+</kw>
+<kw name="Should Start With" library="BuiltIn">
+<doc>Fails if the string ``str1`` does not start with the string ``str2``.</doc>
+<arguments>
+<arg>${status}</arg>
+<arg>30</arg>
+</arguments>
+<status status="PASS" starttime="20200611 18:28:55.709" endtime="20200611 18:28:55.711"></status>
+</kw>
+<tags>
+<tag>get</tag>
+</tags>
+<status status="PASS" starttime="20200611 18:28:55.237" endtime="20200611 18:28:55.711" critical="yes"></status>
+</test>
+<test id="s1-s1-s2-t23" name="Options Request With Redirection">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>httpbin</arg>
+<arg>http://httpbin.org</arg>
+</arguments>
+<msg timestamp="20200611 18:28:55.713" level="INFO">Creating Session using : alias=httpbin, url=http://httpbin.org, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200611 18:28:55.712" endtime="20200611 18:28:55.713"></status>
+</kw>
+<kw name="Options Request" library="RequestsLibrary">
+<doc>Send an OPTIONS request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>httpbin</arg>
+<arg>/redirect/1</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20200611 18:28:55.714" level="INFO">OPTIONS Request using : uri=/redirect/1, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.23.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+data=None 
+json=None</msg>
+<msg timestamp="20200611 18:28:56.228" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20200611 18:28:55.714" endtime="20200611 18:28:56.228"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${resp.status_code}</arg>
+<arg>200</arg>
+</arguments>
+<msg timestamp="20200611 18:28:56.231" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200611 18:28:56.229" endtime="20200611 18:28:56.232"></status>
+</kw>
+<kw name="Options Request" library="RequestsLibrary">
+<doc>Send an OPTIONS request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>httpbin</arg>
+<arg>/redirect/1</arg>
+<arg>allow_redirects=${true}</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20200611 18:28:56.233" level="INFO">OPTIONS Request using : uri=/redirect/1, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.23.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+data=None 
+json=None</msg>
+<msg timestamp="20200611 18:28:56.493" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20200611 18:28:56.233" endtime="20200611 18:28:56.493"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${resp.status_code}</arg>
+<arg>200</arg>
+</arguments>
+<msg timestamp="20200611 18:28:56.495" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200611 18:28:56.493" endtime="20200611 18:28:56.496"></status>
+</kw>
+<tags>
+<tag>options</tag>
+</tags>
+<status status="PASS" starttime="20200611 18:28:55.712" endtime="20200611 18:28:56.496" critical="yes"></status>
+</test>
+<test id="s1-s1-s2-t24" name="Head Request With Redirection">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>httpbin</arg>
+<arg>http://httpbin.org</arg>
+</arguments>
+<msg timestamp="20200611 18:28:56.499" level="INFO">Creating Session using : alias=httpbin, url=http://httpbin.org, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200611 18:28:56.498" endtime="20200611 18:28:56.500"></status>
+</kw>
+<kw name="Head Request" library="RequestsLibrary">
+<doc>Send a HEAD request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>httpbin</arg>
+<arg>/redirect/1</arg>
+<arg>allow_redirects=${true}</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20200611 18:28:56.501" level="INFO">HEAD Request using : uri=/redirect/1, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.23.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+data=None 
+json=None</msg>
+<msg timestamp="20200611 18:28:57.258" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20200611 18:28:56.500" endtime="20200611 18:28:57.258"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${resp.status_code}</arg>
+<arg>200</arg>
+</arguments>
+<msg timestamp="20200611 18:28:57.260" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200611 18:28:57.259" endtime="20200611 18:28:57.260"></status>
+</kw>
+<tags>
+<tag>head</tag>
+</tags>
+<status status="PASS" starttime="20200611 18:28:56.497" endtime="20200611 18:28:57.260" critical="yes"></status>
+</test>
+<test id="s1-s1-s2-t25" name="Head Request Without Redirection">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>httpbin</arg>
+<arg>http://httpbin.org</arg>
+</arguments>
+<msg timestamp="20200611 18:28:57.263" level="INFO">Creating Session using : alias=httpbin, url=http://httpbin.org, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200611 18:28:57.262" endtime="20200611 18:28:57.264"></status>
+</kw>
+<kw name="Head Request" library="RequestsLibrary">
+<doc>Send a HEAD request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>httpbin</arg>
+<arg>/redirect/1</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20200611 18:28:57.265" level="INFO">HEAD Request using : uri=/redirect/1, allow_redirects=False, timeout=None
+headers={'User-Agent': 'python-requests/2.23.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+data=None 
+json=None</msg>
+<msg timestamp="20200611 18:28:57.720" level="INFO">${resp} = &lt;Response [302]&gt;</msg>
+<status status="PASS" starttime="20200611 18:28:57.265" endtime="20200611 18:28:57.720"></status>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>${resp.status_code}</arg>
+</arguments>
+<assign>
+<var>${status}</var>
+</assign>
+<msg timestamp="20200611 18:28:57.721" level="INFO">${status} = 302</msg>
+<status status="PASS" starttime="20200611 18:28:57.720" endtime="20200611 18:28:57.721"></status>
+</kw>
+<kw name="Should Start With" library="BuiltIn">
+<doc>Fails if the string ``str1`` does not start with the string ``str2``.</doc>
+<arguments>
+<arg>${status}</arg>
+<arg>30</arg>
+</arguments>
+<status status="PASS" starttime="20200611 18:28:57.721" endtime="20200611 18:28:57.721"></status>
+</kw>
+<kw name="Head Request" library="RequestsLibrary">
+<doc>Send a HEAD request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>httpbin</arg>
+<arg>/redirect/1</arg>
+<arg>allow_redirects=${false}</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20200611 18:28:57.722" level="INFO">HEAD Request using : uri=/redirect/1, allow_redirects=False, timeout=None
+headers={'User-Agent': 'python-requests/2.23.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+data=None 
+json=None</msg>
+<msg timestamp="20200611 18:28:57.951" level="INFO">${resp} = &lt;Response [302]&gt;</msg>
+<status status="PASS" starttime="20200611 18:28:57.721" endtime="20200611 18:28:57.951"></status>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>${resp.status_code}</arg>
+</arguments>
+<assign>
+<var>${status}</var>
+</assign>
+<msg timestamp="20200611 18:28:57.953" level="INFO">${status} = 302</msg>
+<status status="PASS" starttime="20200611 18:28:57.951" endtime="20200611 18:28:57.953"></status>
+</kw>
+<kw name="Should Start With" library="BuiltIn">
+<doc>Fails if the string ``str1`` does not start with the string ``str2``.</doc>
+<arguments>
+<arg>${status}</arg>
+<arg>30</arg>
+</arguments>
+<status status="PASS" starttime="20200611 18:28:57.953" endtime="20200611 18:28:57.954"></status>
+</kw>
+<tags>
+<tag>head</tag>
+</tags>
+<status status="PASS" starttime="20200611 18:28:57.261" endtime="20200611 18:28:57.954" critical="yes"></status>
+</test>
+<test id="s1-s1-s2-t26" name="Post Request With Redirection">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>jigsaw</arg>
+<arg>http://jigsaw.w3.org</arg>
+</arguments>
+<msg timestamp="20200611 18:28:57.956" level="INFO">Creating Session using : alias=jigsaw, url=http://jigsaw.w3.org, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200611 18:28:57.955" endtime="20200611 18:28:57.956"></status>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>jigsaw</arg>
+<arg>/HTTP/300/302.html</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20200611 18:28:57.957" level="INFO">POST Request using : uri=/HTTP/300/302.html, params=None, files=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.23.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+data=None 
+json=None</msg>
+<msg timestamp="20200611 18:28:58.845" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20200611 18:28:57.957" endtime="20200611 18:28:58.846"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${resp.status_code}</arg>
+<arg>200</arg>
+</arguments>
+<msg timestamp="20200611 18:28:58.848" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200611 18:28:58.846" endtime="20200611 18:28:58.848"></status>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>jigsaw</arg>
+<arg>/HTTP/300/302.html</arg>
+<arg>allow_redirects=${true}</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20200611 18:28:58.851" level="INFO">POST Request using : uri=/HTTP/300/302.html, params=None, files=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.23.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+data=None 
+json=None</msg>
+<msg timestamp="20200611 18:28:59.429" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20200611 18:28:58.849" endtime="20200611 18:28:59.430"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${resp.status_code}</arg>
+<arg>200</arg>
+</arguments>
+<msg timestamp="20200611 18:28:59.432" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200611 18:28:59.430" endtime="20200611 18:28:59.432"></status>
+</kw>
+<tags>
+<tag>post</tag>
+</tags>
+<status status="PASS" starttime="20200611 18:28:57.955" endtime="20200611 18:28:59.433" critical="yes"></status>
+</test>
+<test id="s1-s1-s2-t27" name="Post Request Without Redirection">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>jigsaw</arg>
+<arg>http://jigsaw.w3.org</arg>
+<arg>debug=3</arg>
+</arguments>
+<msg timestamp="20200611 18:28:59.435" level="INFO">Creating Session using : alias=jigsaw, url=http://jigsaw.w3.org, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=3 </msg>
+<status status="PASS" starttime="20200611 18:28:59.435" endtime="20200611 18:28:59.436"></status>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>jigsaw</arg>
+<arg>/HTTP/300/302.html</arg>
+<arg>allow_redirects=${false}</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20200611 18:28:59.437" level="INFO">POST Request using : uri=/HTTP/300/302.html, params=None, files=None, allow_redirects=False, timeout=None
+headers={'User-Agent': 'python-requests/2.23.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+data=None 
+json=None</msg>
+<msg timestamp="20200611 18:29:00.012" level="INFO">${resp} = &lt;Response [302]&gt;</msg>
+<status status="PASS" starttime="20200611 18:28:59.437" endtime="20200611 18:29:00.012"></status>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>${resp.status_code}</arg>
+</arguments>
+<assign>
+<var>${status}</var>
+</assign>
+<msg timestamp="20200611 18:29:00.014" level="INFO">${status} = 302</msg>
+<status status="PASS" starttime="20200611 18:29:00.013" endtime="20200611 18:29:00.014"></status>
+</kw>
+<kw name="Should Start With" library="BuiltIn">
+<doc>Fails if the string ``str1`` does not start with the string ``str2``.</doc>
+<arguments>
+<arg>${status}</arg>
+<arg>30</arg>
+</arguments>
+<status status="PASS" starttime="20200611 18:29:00.015" endtime="20200611 18:29:00.017"></status>
+</kw>
+<tags>
+<tag>post</tag>
+</tags>
+<status status="PASS" starttime="20200611 18:28:59.433" endtime="20200611 18:29:00.018" critical="yes"></status>
+</test>
+<test id="s1-s1-s2-t28" name="Put Request With Redirection">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>jigsaw</arg>
+<arg>http://jigsaw.w3.org</arg>
+<arg>debug=3</arg>
+</arguments>
+<msg timestamp="20200611 18:29:00.022" level="INFO">Creating Session using : alias=jigsaw, url=http://jigsaw.w3.org, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=3 </msg>
+<status status="PASS" starttime="20200611 18:29:00.021" endtime="20200611 18:29:00.022"></status>
+</kw>
+<kw name="Put Request" library="RequestsLibrary">
+<doc>Send a PUT request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>jigsaw</arg>
+<arg>/HTTP/300/302.html</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20200611 18:29:00.023" level="INFO">PUT Request using : uri=/HTTP/300/302.html, params=None, files=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.23.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+data=None 
+json=None</msg>
+<msg timestamp="20200611 18:29:00.885" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20200611 18:29:00.022" endtime="20200611 18:29:00.885"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${resp.status_code}</arg>
+<arg>200</arg>
+</arguments>
+<msg timestamp="20200611 18:29:00.887" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200611 18:29:00.886" endtime="20200611 18:29:00.887"></status>
+</kw>
+<kw name="Put Request" library="RequestsLibrary">
+<doc>Send a PUT request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>jigsaw</arg>
+<arg>/HTTP/300/302.html</arg>
+<arg>allow_redirects=${true}</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20200611 18:29:00.889" level="INFO">PUT Request using : uri=/HTTP/300/302.html, params=None, files=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.23.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+data=None 
+json=None</msg>
+<msg timestamp="20200611 18:29:01.469" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20200611 18:29:00.888" endtime="20200611 18:29:01.469"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${resp.status_code}</arg>
+<arg>200</arg>
+</arguments>
+<msg timestamp="20200611 18:29:01.471" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200611 18:29:01.470" endtime="20200611 18:29:01.471"></status>
+</kw>
+<tags>
+<tag>put</tag>
+</tags>
+<status status="PASS" starttime="20200611 18:29:00.020" endtime="20200611 18:29:01.472" critical="yes"></status>
+</test>
+<test id="s1-s1-s2-t29" name="Put Request Without Redirection">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>jigsaw</arg>
+<arg>http://jigsaw.w3.org</arg>
+</arguments>
+<msg timestamp="20200611 18:29:01.474" level="INFO">Creating Session using : alias=jigsaw, url=http://jigsaw.w3.org, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200611 18:29:01.474" endtime="20200611 18:29:01.475"></status>
+</kw>
+<kw name="Put Request" library="RequestsLibrary">
+<doc>Send a PUT request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>jigsaw</arg>
+<arg>/HTTP/300/302.html</arg>
+<arg>allow_redirects=${false}</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20200611 18:29:01.476" level="INFO">PUT Request using : uri=/HTTP/300/302.html, params=None, files=None, allow_redirects=False, timeout=None
+headers={'User-Agent': 'python-requests/2.23.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+data=None 
+json=None</msg>
+<msg timestamp="20200611 18:29:02.064" level="INFO">${resp} = &lt;Response [302]&gt;</msg>
+<status status="PASS" starttime="20200611 18:29:01.476" endtime="20200611 18:29:02.065"></status>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>${resp.status_code}</arg>
+</arguments>
+<assign>
+<var>${status}</var>
+</assign>
+<msg timestamp="20200611 18:29:02.067" level="INFO">${status} = 302</msg>
+<status status="PASS" starttime="20200611 18:29:02.065" endtime="20200611 18:29:02.067"></status>
+</kw>
+<kw name="Should Start With" library="BuiltIn">
+<doc>Fails if the string ``str1`` does not start with the string ``str2``.</doc>
+<arguments>
+<arg>${status}</arg>
+<arg>30</arg>
+</arguments>
+<status status="PASS" starttime="20200611 18:29:02.068" endtime="20200611 18:29:02.069"></status>
+</kw>
+<tags>
+<tag>put</tag>
+</tags>
+<status status="PASS" starttime="20200611 18:29:01.472" endtime="20200611 18:29:02.069" critical="yes"></status>
+</test>
+<test id="s1-s1-s2-t30" name="Do Not Pretty Print a JSON object">
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Define json variable.</arg>
+</arguments>
+<status status="PASS" starttime="20200611 18:29:02.071" endtime="20200611 18:29:02.071"></status>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>httpbin</arg>
+<arg>http://httpbin.org</arg>
+</arguments>
+<msg timestamp="20200611 18:29:02.072" level="INFO">Creating Session using : alias=httpbin, url=http://httpbin.org, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200611 18:29:02.071" endtime="20200611 18:29:02.072"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>key_one=true</arg>
+<arg>key_two=this is a test string</arg>
+</arguments>
+<assign>
+<var>&amp;{var}</var>
+</assign>
+<msg timestamp="20200611 18:29:02.073" level="INFO">&amp;{var} = { key_one=true | key_two=this is a test string }</msg>
+<status status="PASS" starttime="20200611 18:29:02.072" endtime="20200611 18:29:02.073"></status>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<doc>Send a GET request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>httpbin</arg>
+<arg>/get</arg>
+<arg>params=${var}</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20200611 18:29:02.074" level="INFO">GET Request using : uri=/get, params={'key_one': 'true', 'key_two': 'this is a test string'}, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.23.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+data=None 
+json=None</msg>
+<msg timestamp="20200611 18:29:02.590" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20200611 18:29:02.073" endtime="20200611 18:29:02.591"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${resp.status_code}</arg>
+<arg>200</arg>
+</arguments>
+<msg timestamp="20200611 18:29:02.592" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200611 18:29:02.591" endtime="20200611 18:29:02.592"></status>
+</kw>
+<kw name="To Json" library="RequestsLibrary">
+<doc>Convert a string to a JSON object</doc>
+<arguments>
+<arg>${resp.content}</arg>
+</arguments>
+<assign>
+<var>${jsondata}</var>
+</assign>
+<msg timestamp="20200611 18:29:02.593" level="INFO">To JSON using : content={
+  "args": {
+    "key_one": "true", 
+    "key_two": "this is a test string"
+  }, 
+  "headers": {
+    "Accept": "*/*", 
+    "Accept-Encoding": "gzip, deflate", 
+    "Host": "httpbin.org", 
+    "User-Agent": "python-requests/2.23.0", 
+    "X-Amzn-Trace-Id": "Root=1-5ee277ee-54dbc568f863498660ea7ab7"
+  }, 
+  "origin": "180.190.90.77", 
+  "url": "http://httpbin.org/get?key_one=true&amp;key_two=this+is+a+test+string"
+}
+ </msg>
+<msg timestamp="20200611 18:29:02.594" level="INFO">To JSON using : pretty_print=False </msg>
+<msg timestamp="20200611 18:29:02.594" level="INFO">${jsondata} = {'args': {'key_one': 'true', 'key_two': 'this is a test string'}, 'headers': {'Accept': '*/*', 'Accept-Encoding': 'gzip, deflate', 'Host': 'httpbin.org', 'User-Agent': 'python-requests/2.23.0', 'X-Amz...</msg>
+<status status="PASS" starttime="20200611 18:29:02.593" endtime="20200611 18:29:02.594"></status>
+</kw>
+<kw name="Dictionaries Should Be Equal" library="Collections">
+<doc>Fails if the given dictionaries are not equal.</doc>
+<arguments>
+<arg>${jsondata['args']}</arg>
+<arg>${var}</arg>
+</arguments>
+<status status="PASS" starttime="20200611 18:29:02.595" endtime="20200611 18:29:02.596"></status>
+</kw>
+<tags>
+<tag>json</tag>
+</tags>
+<status status="PASS" starttime="20200611 18:29:02.070" endtime="20200611 18:29:02.596" critical="yes"></status>
+</test>
+<test id="s1-s1-s2-t31" name="Pretty Print a JSON object">
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Define json variable.</arg>
+</arguments>
+<status status="PASS" starttime="20200611 18:29:02.597" endtime="20200611 18:29:02.598"></status>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>httpbin</arg>
+<arg>http://httpbin.org</arg>
+</arguments>
+<msg timestamp="20200611 18:29:02.598" level="INFO">Creating Session using : alias=httpbin, url=http://httpbin.org, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200611 18:29:02.598" endtime="20200611 18:29:02.599"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>key_one=true</arg>
+<arg>key_two=this is a test string</arg>
+</arguments>
+<assign>
+<var>&amp;{var}</var>
+</assign>
+<msg timestamp="20200611 18:29:02.599" level="INFO">&amp;{var} = { key_one=true | key_two=this is a test string }</msg>
+<status status="PASS" starttime="20200611 18:29:02.599" endtime="20200611 18:29:02.599"></status>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<doc>Send a GET request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>httpbin</arg>
+<arg>/get</arg>
+<arg>params=${var}</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20200611 18:29:02.600" level="INFO">GET Request using : uri=/get, params={'key_one': 'true', 'key_two': 'this is a test string'}, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.23.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+data=None 
+json=None</msg>
+<msg timestamp="20200611 18:29:03.064" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20200611 18:29:02.599" endtime="20200611 18:29:03.064"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${resp}</arg>
+</arguments>
+<msg timestamp="20200611 18:29:03.065" level="INFO">&lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20200611 18:29:03.065" endtime="20200611 18:29:03.066"></status>
+</kw>
+<kw name="To Json" library="RequestsLibrary">
+<doc>Convert a string to a JSON object</doc>
+<arguments>
+<arg>${resp.content}</arg>
+<arg>pretty_print=True</arg>
+</arguments>
+<assign>
+<var>${output}</var>
+</assign>
+<msg timestamp="20200611 18:29:03.068" level="INFO">To JSON using : content={
+  "args": {
+    "key_one": "true", 
+    "key_two": "this is a test string"
+  }, 
+  "headers": {
+    "Accept": "*/*", 
+    "Accept-Encoding": "gzip, deflate", 
+    "Host": "httpbin.org", 
+    "User-Agent": "python-requests/2.23.0", 
+    "X-Amzn-Trace-Id": "Root=1-5ee277ee-38df0e42c2e5bca274aa2f12"
+  }, 
+  "origin": "180.190.90.77", 
+  "url": "http://httpbin.org/get?key_one=true&amp;key_two=this+is+a+test+string"
+}
+ </msg>
+<msg timestamp="20200611 18:29:03.068" level="INFO">To JSON using : pretty_print=True </msg>
+<msg timestamp="20200611 18:29:03.068" level="INFO">${output} = {
+    "args": {
+        "key_one": "true",
+        "key_two": "this is a test string"
+    },
+    "headers": {
+        "Accept": "*/*",
+        "Accept-Encoding": "gzip, deflate",
+        "Host": "http...</msg>
+<status status="PASS" starttime="20200611 18:29:03.066" endtime="20200611 18:29:03.069"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${output}</arg>
+</arguments>
+<msg timestamp="20200611 18:29:03.070" level="INFO">{
+    "args": {
+        "key_one": "true",
+        "key_two": "this is a test string"
+    },
+    "headers": {
+        "Accept": "*/*",
+        "Accept-Encoding": "gzip, deflate",
+        "Host": "httpbin.org",
+        "User-Agent": "python-requests/2.23.0",
+        "X-Amzn-Trace-Id": "Root=1-5ee277ee-38df0e42c2e5bca274aa2f12"
+    },
+    "origin": "180.190.90.77",
+    "url": "http://httpbin.org/get?key_one=true&amp;key_two=this+is+a+test+string"
+}</msg>
+<status status="PASS" starttime="20200611 18:29:03.069" endtime="20200611 18:29:03.070"></status>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${output}</arg>
+<arg>"key_one": "true"</arg>
+</arguments>
+<status status="PASS" starttime="20200611 18:29:03.071" endtime="20200611 18:29:03.072"></status>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${output}</arg>
+<arg>"key_two": "this is a test string"</arg>
+</arguments>
+<status status="PASS" starttime="20200611 18:29:03.072" endtime="20200611 18:29:03.072"></status>
+</kw>
+<kw name="Should Not Contain" library="BuiltIn">
+<doc>Fails if ``container`` contains ``item`` one or more times.</doc>
+<arguments>
+<arg>${output}</arg>
+<arg>{u'key_two': u'this is a test string', u'key_one': u'true'}</arg>
+</arguments>
+<status status="PASS" starttime="20200611 18:29:03.072" endtime="20200611 18:29:03.073"></status>
+</kw>
+<tags>
+<tag>json</tag>
+</tags>
+<status status="PASS" starttime="20200611 18:29:02.596" endtime="20200611 18:29:03.073" critical="yes"></status>
+</test>
+<test id="s1-s1-s2-t32" name="Set Pretty Print to non-Boolean value">
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Define json variable.</arg>
+</arguments>
+<status status="PASS" starttime="20200611 18:29:03.074" endtime="20200611 18:29:03.075"></status>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>httpbin</arg>
+<arg>http://httpbin.org</arg>
+</arguments>
+<msg timestamp="20200611 18:29:03.075" level="INFO">Creating Session using : alias=httpbin, url=http://httpbin.org, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200611 18:29:03.075" endtime="20200611 18:29:03.076"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>key_one=true</arg>
+<arg>key_two=this is a test string</arg>
+</arguments>
+<assign>
+<var>&amp;{var}</var>
+</assign>
+<msg timestamp="20200611 18:29:03.077" level="INFO">&amp;{var} = { key_one=true | key_two=this is a test string }</msg>
+<status status="PASS" starttime="20200611 18:29:03.076" endtime="20200611 18:29:03.077"></status>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<doc>Send a GET request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>httpbin</arg>
+<arg>/get</arg>
+<arg>params=${var}</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20200611 18:29:03.078" level="INFO">GET Request using : uri=/get, params={'key_one': 'true', 'key_two': 'this is a test string'}, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.23.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+data=None 
+json=None</msg>
+<msg timestamp="20200611 18:29:03.748" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20200611 18:29:03.077" endtime="20200611 18:29:03.749"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${resp}</arg>
+</arguments>
+<msg timestamp="20200611 18:29:03.750" level="INFO">&lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20200611 18:29:03.749" endtime="20200611 18:29:03.750"></status>
+</kw>
+<kw name="To Json" library="RequestsLibrary">
+<doc>Convert a string to a JSON object</doc>
+<arguments>
+<arg>${resp.content}</arg>
+<arg>pretty_print="Hello"</arg>
+</arguments>
+<assign>
+<var>${output}</var>
+</assign>
+<msg timestamp="20200611 18:29:03.752" level="INFO">To JSON using : content={
+  "args": {
+    "key_one": "true", 
+    "key_two": "this is a test string"
+  }, 
+  "headers": {
+    "Accept": "*/*", 
+    "Accept-Encoding": "gzip, deflate", 
+    "Host": "httpbin.org", 
+    "User-Agent": "python-requests/2.23.0", 
+    "X-Amzn-Trace-Id": "Root=1-5ee277ef-95a0a99f5644c96498eb87ac"
+  }, 
+  "origin": "180.190.90.77", 
+  "url": "http://httpbin.org/get?key_one=true&amp;key_two=this+is+a+test+string"
+}
+ </msg>
+<msg timestamp="20200611 18:29:03.752" level="INFO">To JSON using : pretty_print="Hello" </msg>
+<msg timestamp="20200611 18:29:03.753" level="INFO">${output} = {
+    "args": {
+        "key_one": "true",
+        "key_two": "this is a test string"
+    },
+    "headers": {
+        "Accept": "*/*",
+        "Accept-Encoding": "gzip, deflate",
+        "Host": "http...</msg>
+<status status="PASS" starttime="20200611 18:29:03.750" endtime="20200611 18:29:03.753"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${output}</arg>
+</arguments>
+<msg timestamp="20200611 18:29:03.754" level="INFO">{
+    "args": {
+        "key_one": "true",
+        "key_two": "this is a test string"
+    },
+    "headers": {
+        "Accept": "*/*",
+        "Accept-Encoding": "gzip, deflate",
+        "Host": "httpbin.org",
+        "User-Agent": "python-requests/2.23.0",
+        "X-Amzn-Trace-Id": "Root=1-5ee277ef-95a0a99f5644c96498eb87ac"
+    },
+    "origin": "180.190.90.77",
+    "url": "http://httpbin.org/get?key_one=true&amp;key_two=this+is+a+test+string"
+}</msg>
+<status status="PASS" starttime="20200611 18:29:03.754" endtime="20200611 18:29:03.755"></status>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${output}</arg>
+<arg>"key_one": "true"</arg>
+</arguments>
+<status status="PASS" starttime="20200611 18:29:03.755" endtime="20200611 18:29:03.756"></status>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${output}</arg>
+<arg>"key_two": "this is a test string"</arg>
+</arguments>
+<status status="PASS" starttime="20200611 18:29:03.756" endtime="20200611 18:29:03.756"></status>
+</kw>
+<kw name="Should Not Contain" library="BuiltIn">
+<doc>Fails if ``container`` contains ``item`` one or more times.</doc>
+<arguments>
+<arg>${output}</arg>
+<arg>{u'key_two': u'this is a test string', u'key_one': u'true'}</arg>
+</arguments>
+<status status="PASS" starttime="20200611 18:29:03.756" endtime="20200611 18:29:03.757"></status>
+</kw>
+<tags>
+<tag>json</tag>
+</tags>
+<status status="PASS" starttime="20200611 18:29:03.074" endtime="20200611 18:29:03.757" critical="yes"></status>
+</test>
+<kw name="Delete All Sessions" library="RequestsLibrary" type="teardown">
+<doc>Removes all the session objects</doc>
+<msg timestamp="20200611 18:29:03.761" level="INFO">Delete All Sessions</msg>
+<status status="PASS" starttime="20200611 18:29:03.760" endtime="20200611 18:29:03.769"></status>
+</kw>
+<status status="PASS" starttime="20200611 18:28:43.616" endtime="20200611 18:29:03.769"></status>
+</suite>
+<suite id="s1-s1-s3" name="Simpletest" source="/var/jenkins_home/workspace/robot-grafana/test/simpletest.robot">
+<test id="s1-s1-s3-t1" name="Visit Baidu">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>https://www.baidu.com</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20200611 18:29:03.966" level="INFO">Opening browser 'chrome' to base url 'https://www.baidu.com'.</msg>
+<msg timestamp="20200611 18:29:10.684" level="INFO">send: b'POST /session HTTP/1.1\r\nHost: 127.0.0.1:56939\r\nAccept-Encoding: identity\r\nContent-Length: 295\r\nAccept: application/json\r\nContent-Type: application/json;charset=UTF-8\r\nUser-Agent: selenium/3.141.0 (python linux)\r\nConnection: keep-alive\r\n\r\n'
+send: b'{"capabilities": {"firstMatch": [{}], "alwaysMatch": {"browserName": "chrome", "platformName": "any", "goog:chromeOptions": {"extensions": [], "args": []}}}, "desiredCapabilities": {"browserName": "chrome", "version": "", "platform": "ANY", "goog:chromeOptions": {"extensions": [], "args": []}}}'
+reply: 'HTTP/1.1 200 OK\r\n'
+header: Content-Length: 685
+header: Content-Type: application/json; charset=utf-8
+header: cache-control: no-cache
+send: b'POST /session/99de39868be2c16f978726420e9bb65e/timeouts HTTP/1.1\r\nHost: 127.0.0.1:56939\r\nAccept-Encoding: identity\r\nContent-Length: 16\r\nAccept: application/json\r\nContent-Type: application/json;charset=UTF-8\r\nUser-Agent: selenium/3.141.0 (python linux)\r\nConnection: keep-alive\r\n\r\n'
+send: b'{"script": 5000}'
+reply: 'HTTP/1.1 200 OK\r\n'
+header: Content-Length: 14
+header: Content-Type: application/json; charset=utf-8
+header: cache-control: no-cache
+send: b'POST /session/99de39868be2c16f978726420e9bb65e/timeouts HTTP/1.1\r\nHost: 127.0.0.1:56939\r\nAccept-Encoding: identity\r\nContent-Length: 15\r\nAccept: application/json\r\nContent-Type: application/json;charset=UTF-8\r\nUser-Agent: selenium/3.141.0 (python linux)\r\nConnection: keep-alive\r\n\r\n'
+send: b'{"implicit": 0}'
+reply: 'HTTP/1.1 200 OK\r\n'
+header: Content-Length: 14
+header: Content-Type: application/json; charset=utf-8
+header: cache-control: no-cache
+send: b'POST /session/99de39868be2c16f978726420e9bb65e/url HTTP/1.1\r\nHost: 127.0.0.1:56939\r\nAccept-Encoding: identity\r\nContent-Length: 32\r\nAccept: application/json\r\nContent-Type: application/json;charset=UTF-8\r\nUser-Agent: selenium/3.141.0 (python linux)\r\nConnection: keep-alive\r\n\r\n'
+send: b'{"url": "https://www.baidu.com"}'
+reply: 'HTTP/1.1 200 OK\r\n'
+header: Content-Length: 14
+header: Content-Type: application/json; charset=utf-8
+header: cache-control: no-cache</msg>
+<status status="PASS" starttime="20200611 18:29:03.965" endtime="20200611 18:29:10.685"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20200611 18:29:10.933" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20200611 18:29:10.934" level="INFO">send: b'GET /session/99de39868be2c16f978726420e9bb65e/screenshot HTTP/1.1\r\nHost: 127.0.0.1:56939\r\nAccept-Encoding: identity\r\nAccept: application/json\r\nContent-Type: application/json;charset=UTF-8\r\nUser-Agent: selenium/3.141.0 (python linux)\r\nConnection: keep-alive\r\n\r\n'
+reply: 'HTTP/1.1 200 OK\r\n'
+header: Content-Length: 37724
+header: Content-Type: application/json; charset=utf-8
+header: cache-control: no-cache</msg>
+<status status="PASS" starttime="20200611 18:29:10.685" endtime="20200611 18:29:10.934"></status>
+</kw>
+<status status="PASS" starttime="20200611 18:29:03.963" endtime="20200611 18:29:10.934" critical="yes"></status>
+</test>
+<test id="s1-s1-s3-t2" name="Visit Bing">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>https://www.bing.com</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20200611 18:29:10.937" level="INFO">Opening browser 'chrome' to base url 'https://www.bing.com'.</msg>
+<msg timestamp="20200611 18:29:14.790" level="INFO">send: b'POST /session HTTP/1.1\r\nHost: 127.0.0.1:33501\r\nAccept-Encoding: identity\r\nContent-Length: 295\r\nAccept: application/json\r\nContent-Type: application/json;charset=UTF-8\r\nUser-Agent: selenium/3.141.0 (python linux)\r\nConnection: keep-alive\r\n\r\n'
+send: b'{"capabilities": {"firstMatch": [{}], "alwaysMatch": {"browserName": "chrome", "platformName": "any", "goog:chromeOptions": {"extensions": [], "args": []}}}, "desiredCapabilities": {"browserName": "chrome", "version": "", "platform": "ANY", "goog:chromeOptions": {"extensions": [], "args": []}}}'
+reply: 'HTTP/1.1 200 OK\r\n'
+header: Content-Length: 685
+header: Content-Type: application/json; charset=utf-8
+header: cache-control: no-cache
+send: b'POST /session/ec39381274d4d00dfed4869a5ae8dcff/timeouts HTTP/1.1\r\nHost: 127.0.0.1:33501\r\nAccept-Encoding: identity\r\nContent-Length: 16\r\nAccept: application/json\r\nContent-Type: application/json;charset=UTF-8\r\nUser-Agent: selenium/3.141.0 (python linux)\r\nConnection: keep-alive\r\n\r\n'
+send: b'{"script": 5000}'
+reply: 'HTTP/1.1 200 OK\r\n'
+header: Content-Length: 14
+header: Content-Type: application/json; charset=utf-8
+header: cache-control: no-cache
+send: b'POST /session/ec39381274d4d00dfed4869a5ae8dcff/timeouts HTTP/1.1\r\nHost: 127.0.0.1:33501\r\nAccept-Encoding: identity\r\nContent-Length: 15\r\nAccept: application/json\r\nContent-Type: application/json;charset=UTF-8\r\nUser-Agent: selenium/3.141.0 (python linux)\r\nConnection: keep-alive\r\n\r\n'
+send: b'{"implicit": 0}'
+reply: 'HTTP/1.1 200 OK\r\n'
+header: Content-Length: 14
+header: Content-Type: application/json; charset=utf-8
+header: cache-control: no-cache
+send: b'POST /session/ec39381274d4d00dfed4869a5ae8dcff/url HTTP/1.1\r\nHost: 127.0.0.1:33501\r\nAccept-Encoding: identity\r\nContent-Length: 31\r\nAccept: application/json\r\nContent-Type: application/json;charset=UTF-8\r\nUser-Agent: selenium/3.141.0 (python linux)\r\nConnection: keep-alive\r\n\r\n'
+send: b'{"url": "https://www.bing.com"}'
+reply: 'HTTP/1.1 200 OK\r\n'
+header: Content-Length: 14
+header: Content-Type: application/json; charset=utf-8
+header: cache-control: no-cache</msg>
+<status status="PASS" starttime="20200611 18:29:10.936" endtime="20200611 18:29:14.797"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20200611 18:29:16.536" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20200611 18:29:16.536" level="INFO">send: b'GET /session/ec39381274d4d00dfed4869a5ae8dcff/screenshot HTTP/1.1\r\nHost: 127.0.0.1:33501\r\nAccept-Encoding: identity\r\nAccept: application/json\r\nContent-Type: application/json;charset=UTF-8\r\nUser-Agent: selenium/3.141.0 (python linux)\r\nConnection: keep-alive\r\n\r\n'
+reply: 'HTTP/1.1 200 OK\r\n'
+header: Content-Length: 2795940
+header: Content-Type: application/json; charset=utf-8
+header: cache-control: no-cache</msg>
+<status status="PASS" starttime="20200611 18:29:14.799" endtime="20200611 18:29:16.537"></status>
+</kw>
+<status status="PASS" starttime="20200611 18:29:10.935" endtime="20200611 18:29:16.538" critical="yes"></status>
+</test>
+<test id="s1-s1-s3-t3" name="Visit Google">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>https://www.google.com</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20200611 18:29:16.543" level="INFO">Opening browser 'chrome' to base url 'https://www.google.com'.</msg>
+<msg timestamp="20200611 18:29:20.591" level="INFO">send: b'POST /session HTTP/1.1\r\nHost: 127.0.0.1:57527\r\nAccept-Encoding: identity\r\nContent-Length: 295\r\nAccept: application/json\r\nContent-Type: application/json;charset=UTF-8\r\nUser-Agent: selenium/3.141.0 (python linux)\r\nConnection: keep-alive\r\n\r\n'
+send: b'{"capabilities": {"firstMatch": [{}], "alwaysMatch": {"browserName": "chrome", "platformName": "any", "goog:chromeOptions": {"extensions": [], "args": []}}}, "desiredCapabilities": {"browserName": "chrome", "version": "", "platform": "ANY", "goog:chromeOptions": {"extensions": [], "args": []}}}'
+reply: 'HTTP/1.1 200 OK\r\n'
+header: Content-Length: 685
+header: Content-Type: application/json; charset=utf-8
+header: cache-control: no-cache
+send: b'POST /session/3322b00c146d14191fa1e8ccddc41a89/timeouts HTTP/1.1\r\nHost: 127.0.0.1:57527\r\nAccept-Encoding: identity\r\nContent-Length: 16\r\nAccept: application/json\r\nContent-Type: application/json;charset=UTF-8\r\nUser-Agent: selenium/3.141.0 (python linux)\r\nConnection: keep-alive\r\n\r\n'
+send: b'{"script": 5000}'
+reply: 'HTTP/1.1 200 OK\r\n'
+header: Content-Length: 14
+header: Content-Type: application/json; charset=utf-8
+header: cache-control: no-cache
+send: b'POST /session/3322b00c146d14191fa1e8ccddc41a89/timeouts HTTP/1.1\r\nHost: 127.0.0.1:57527\r\nAccept-Encoding: identity\r\nContent-Length: 15\r\nAccept: application/json\r\nContent-Type: application/json;charset=UTF-8\r\nUser-Agent: selenium/3.141.0 (python linux)\r\nConnection: keep-alive\r\n\r\n'
+send: b'{"implicit": 0}'
+reply: 'HTTP/1.1 200 OK\r\n'
+header: Content-Length: 14
+header: Content-Type: application/json; charset=utf-8
+header: cache-control: no-cache
+send: b'POST /session/3322b00c146d14191fa1e8ccddc41a89/url HTTP/1.1\r\nHost: 127.0.0.1:57527\r\nAccept-Encoding: identity\r\nContent-Length: 33\r\nAccept: application/json\r\nContent-Type: application/json;charset=UTF-8\r\nUser-Agent: selenium/3.141.0 (python linux)\r\nConnection: keep-alive\r\n\r\n'
+send: b'{"url": "https://www.google.com"}'
+reply: 'HTTP/1.1 200 OK\r\n'
+header: Content-Length: 14
+header: Content-Type: application/json; charset=utf-8
+header: cache-control: no-cache</msg>
+<status status="PASS" starttime="20200611 18:29:16.542" endtime="20200611 18:29:20.592"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20200611 18:29:20.859" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20200611 18:29:20.861" level="INFO">send: b'GET /session/3322b00c146d14191fa1e8ccddc41a89/screenshot HTTP/1.1\r\nHost: 127.0.0.1:57527\r\nAccept-Encoding: identity\r\nAccept: application/json\r\nContent-Type: application/json;charset=UTF-8\r\nUser-Agent: selenium/3.141.0 (python linux)\r\nConnection: keep-alive\r\n\r\n'
+reply: 'HTTP/1.1 200 OK\r\n'
+header: Content-Length: 48896
+header: Content-Type: application/json; charset=utf-8
+header: cache-control: no-cache</msg>
+<status status="PASS" starttime="20200611 18:29:20.595" endtime="20200611 18:29:20.862"></status>
+</kw>
+<status status="PASS" starttime="20200611 18:29:16.539" endtime="20200611 18:29:20.862" critical="yes"></status>
+</test>
+<test id="s1-s1-s3-t4" name="Visit Yahoo">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>https://search.yahoo.com</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20200611 18:29:20.867" level="INFO">Opening browser 'chrome' to base url 'https://search.yahoo.com'.</msg>
+<msg timestamp="20200611 18:29:25.779" level="INFO">send: b'POST /session HTTP/1.1\r\nHost: 127.0.0.1:57243\r\nAccept-Encoding: identity\r\nContent-Length: 295\r\nAccept: application/json\r\nContent-Type: application/json;charset=UTF-8\r\nUser-Agent: selenium/3.141.0 (python linux)\r\nConnection: keep-alive\r\n\r\n'
+send: b'{"capabilities": {"firstMatch": [{}], "alwaysMatch": {"browserName": "chrome", "platformName": "any", "goog:chromeOptions": {"extensions": [], "args": []}}}, "desiredCapabilities": {"browserName": "chrome", "version": "", "platform": "ANY", "goog:chromeOptions": {"extensions": [], "args": []}}}'
+reply: 'HTTP/1.1 200 OK\r\n'
+header: Content-Length: 685
+header: Content-Type: application/json; charset=utf-8
+header: cache-control: no-cache
+send: b'POST /session/a9fbbcde5f1c7beec0b56c50b8ee2f0d/timeouts HTTP/1.1\r\nHost: 127.0.0.1:57243\r\nAccept-Encoding: identity\r\nContent-Length: 16\r\nAccept: application/json\r\nContent-Type: application/json;charset=UTF-8\r\nUser-Agent: selenium/3.141.0 (python linux)\r\nConnection: keep-alive\r\n\r\n'
+send: b'{"script": 5000}'
+reply: 'HTTP/1.1 200 OK\r\n'
+header: Content-Length: 14
+header: Content-Type: application/json; charset=utf-8
+header: cache-control: no-cache
+send: b'POST /session/a9fbbcde5f1c7beec0b56c50b8ee2f0d/timeouts HTTP/1.1\r\nHost: 127.0.0.1:57243\r\nAccept-Encoding: identity\r\nContent-Length: 15\r\nAccept: application/json\r\nContent-Type: application/json;charset=UTF-8\r\nUser-Agent: selenium/3.141.0 (python linux)\r\nConnection: keep-alive\r\n\r\n'
+send: b'{"implicit": 0}'
+reply: 'HTTP/1.1 200 OK\r\n'
+header: Content-Length: 14
+header: Content-Type: application/json; charset=utf-8
+header: cache-control: no-cache
+send: b'POST /session/a9fbbcde5f1c7beec0b56c50b8ee2f0d/url HTTP/1.1\r\nHost: 127.0.0.1:57243\r\nAccept-Encoding: identity\r\nContent-Length: 35\r\nAccept: application/json\r\nContent-Type: application/json;charset=UTF-8\r\nUser-Agent: selenium/3.141.0 (python linux)\r\nConnection: keep-alive\r\n\r\n'
+send: b'{"url": "https://search.yahoo.com"}'
+reply: 'HTTP/1.1 200 OK\r\n'
+header: Content-Length: 14
+header: Content-Type: application/json; charset=utf-8
+header: cache-control: no-cache</msg>
+<status status="PASS" starttime="20200611 18:29:20.866" endtime="20200611 18:29:25.780"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20200611 18:29:27.107" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-4.png"&gt;&lt;img src="selenium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20200611 18:29:27.107" level="INFO">send: b'GET /session/a9fbbcde5f1c7beec0b56c50b8ee2f0d/screenshot HTTP/1.1\r\nHost: 127.0.0.1:57243\r\nAccept-Encoding: identity\r\nAccept: application/json\r\nContent-Type: application/json;charset=UTF-8\r\nUser-Agent: selenium/3.141.0 (python linux)\r\nConnection: keep-alive\r\n\r\n'
+reply: 'HTTP/1.1 200 OK\r\n'
+header: Content-Length: 2355980
+header: Content-Type: application/json; charset=utf-8
+header: cache-control: no-cache</msg>
+<status status="PASS" starttime="20200611 18:29:25.781" endtime="20200611 18:29:27.108"></status>
+</kw>
+<status status="PASS" starttime="20200611 18:29:20.864" endtime="20200611 18:29:27.108" critical="yes"></status>
+</test>
+<test id="s1-s1-s3-t5" name="Visit Ed Sherwin Blog">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>http://edsherwinnnnn.netlifyis.app</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20200611 18:29:27.110" level="INFO">Opening browser 'chrome' to base url 'http://edsherwinnnnn.netlifyis.app'.</msg>
+<msg timestamp="20200611 18:29:29.893" level="INFO">send: b'POST /session HTTP/1.1\r\nHost: 127.0.0.1:39697\r\nAccept-Encoding: identity\r\nContent-Length: 295\r\nAccept: application/json\r\nContent-Type: application/json;charset=UTF-8\r\nUser-Agent: selenium/3.141.0 (python linux)\r\nConnection: keep-alive\r\n\r\n'
+send: b'{"capabilities": {"firstMatch": [{}], "alwaysMatch": {"browserName": "chrome", "platformName": "any", "goog:chromeOptions": {"extensions": [], "args": []}}}, "desiredCapabilities": {"browserName": "chrome", "version": "", "platform": "ANY", "goog:chromeOptions": {"extensions": [], "args": []}}}'
+reply: 'HTTP/1.1 200 OK\r\n'
+header: Content-Length: 685
+header: Content-Type: application/json; charset=utf-8
+header: cache-control: no-cache
+send: b'POST /session/4afd7a146b7c2e77de5bdf328ff7245d/timeouts HTTP/1.1\r\nHost: 127.0.0.1:39697\r\nAccept-Encoding: identity\r\nContent-Length: 16\r\nAccept: application/json\r\nContent-Type: application/json;charset=UTF-8\r\nUser-Agent: selenium/3.141.0 (python linux)\r\nConnection: keep-alive\r\n\r\n'
+send: b'{"script": 5000}'
+reply: 'HTTP/1.1 200 OK\r\n'
+header: Content-Length: 14
+header: Content-Type: application/json; charset=utf-8
+header: cache-control: no-cache
+send: b'POST /session/4afd7a146b7c2e77de5bdf328ff7245d/timeouts HTTP/1.1\r\nHost: 127.0.0.1:39697\r\nAccept-Encoding: identity\r\nContent-Length: 15\r\nAccept: application/json\r\nContent-Type: application/json;charset=UTF-8\r\nUser-Agent: selenium/3.141.0 (python linux)\r\nConnection: keep-alive\r\n\r\n'
+send: b'{"implicit": 0}'
+reply: 'HTTP/1.1 200 OK\r\n'
+header: Content-Length: 14
+header: Content-Type: application/json; charset=utf-8
+header: cache-control: no-cache
+send: b'POST /session/4afd7a146b7c2e77de5bdf328ff7245d/url HTTP/1.1\r\nHost: 127.0.0.1:39697\r\nAccept-Encoding: identity\r\nContent-Length: 45\r\nAccept: application/json\r\nContent-Type: application/json;charset=UTF-8\r\nUser-Agent: selenium/3.141.0 (python linux)\r\nConnection: keep-alive\r\n\r\n'
+send: b'{"url": "http://edsherwinnnnn.netlifyis.app"}'
+reply: 'HTTP/1.1 200 OK\r\n'
+header: Content-Length: 14
+header: Content-Type: application/json; charset=utf-8
+header: cache-control: no-cache</msg>
+<status status="PASS" starttime="20200611 18:29:27.110" endtime="20200611 18:29:29.894"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20200611 18:29:29.896" level="FAIL">Keyword 'SeleniumLibrary.Click Element' expected 1 to 3 arguments, got 0.</msg>
+<status status="FAIL" starttime="20200611 18:29:29.895" endtime="20200611 18:29:29.896"></status>
+</kw>
+<status status="FAIL" starttime="20200611 18:29:27.109" endtime="20200611 18:29:29.897" critical="yes">Keyword 'SeleniumLibrary.Click Element' expected 1 to 3 arguments, got 0.</status>
+</test>
+<status status="FAIL" starttime="20200611 18:29:03.778" endtime="20200611 18:29:29.903"></status>
+</suite>
+<status status="FAIL" starttime="20200611 18:28:43.179" endtime="20200611 18:29:29.919"></status>
+</suite>
+<status status="FAIL" starttime="20200611 18:28:43.138" endtime="20200611 18:29:29.947"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="43" fail="1">Critical Tests</stat>
+<stat pass="43" fail="1">All Tests</stat>
+</total>
+<tag>
+<stat pass="3" fail="0">delete</stat>
+<stat pass="7" fail="0">faker</stat>
+<stat pass="5" fail="0">get</stat>
+<stat pass="1" fail="0">get-cert</stat>
+<stat pass="3" fail="0">head</stat>
+<stat pass="3" fail="0">json</stat>
+<stat pass="2" fail="0">options</stat>
+<stat pass="1" fail="0">patch</stat>
+<stat pass="9" fail="0">post</stat>
+<stat pass="6" fail="0">put</stat>
+</tag>
+<suite>
+<stat pass="43" fail="1" id="s1" name="Robot-Grafana">Robot-Grafana</stat>
+<stat pass="43" fail="1" id="s1-s1" name="Test">Robot-Grafana.Test</stat>
+<stat pass="7" fail="0" id="s1-s1-s1" name="Faker">Robot-Grafana.Test.Faker</stat>
+<stat pass="32" fail="0" id="s1-s1-s2" name="Requests">Robot-Grafana.Test.Requests</stat>
+<stat pass="4" fail="1" id="s1-s1-s3" name="Simpletest">Robot-Grafana.Test.Simpletest</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
