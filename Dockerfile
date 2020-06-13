@@ -88,7 +88,6 @@ RUN apk update \
     mysqlclient \
     dbbot \
     dbbot-sqlalchemy \
-    MySQL-python \
    # dbbot-sqlalchemy \
 
 # Download the glibc package for Alpine Linux from its GitHub repository
