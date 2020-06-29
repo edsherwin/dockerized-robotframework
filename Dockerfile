@@ -103,7 +103,7 @@ RUN apk update \
     mysqlclient \
     dbbot \
     dbbot-sqlalchemy \
-    pip install robotframework-distbot \
+    robotframework-distbot \
    # dbbot-sqlalchemy \
 
 # Download the glibc package for Alpine Linux from its GitHub repository
