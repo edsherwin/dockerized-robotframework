@@ -39,6 +39,7 @@ ENV ROBOT_FRAMEWORK_VERSION 3.1.2
 ENV SELENIUM_LIBRARY_VERSION 4.3.0
 ENV SSH_LIBRARY_VERSION 3.4.0
 ENV XVFB_VERSION 1.20
+ENV DISBOT_VERSION 0.2
 
 # Prepare binaries to be executed
 COPY bin/chromedriver.sh /opt/robotframework/bin/chromedriver
@@ -102,6 +103,7 @@ RUN apk update \
     mysqlclient \
     dbbot \
     dbbot-sqlalchemy \
+    pip install robotframework-distbot \
    # dbbot-sqlalchemy \
 
 # Download the glibc package for Alpine Linux from its GitHub repository
@@ -159,3 +161,5 @@ WORKDIR ${ROBOT_WORK_DIR}
 
 # Execute all robot tests
 CMD ["run-tests-in-virtual-screen.sh","mysql-grafana.sh"]
+
+ENTRYPOINT [ "python", "-m", "disbot" ]
