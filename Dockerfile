@@ -162,4 +162,4 @@ WORKDIR ${ROBOT_WORK_DIR}
 # Execute all robot tests
 CMD ["run-tests-in-virtual-screen.sh","mysql-grafana.sh"]
 
-ENTRYPOINT [ "python", "-m", "disbot" ]
+ENTRYPOINT [ "python3", "-m", "disbot" ]
