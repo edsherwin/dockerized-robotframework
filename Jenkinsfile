@@ -29,8 +29,8 @@ pipeline {
                 ROBOT_REPORTS_DIR = "$WORKSPACE/reports"
             }
             steps {
-               // sh '"/opt/robotframework/bin/run-tests-in-virtual-screen.sh"'
-               sh '"/opt/robotframework/bin/mysql-grafana.sh"'
+               sh '"/opt/robotframework/bin/run-tests-in-virtual-screen.sh"'
+               //sh '"/opt/robotframework/bin/mysql-grafana.sh"'
                 //sh 'python3 -m dbbot.run -b mysql://grafanaReader:password@172.17.0.7/robot_results reports/output.xml'
            // sh 'python3 -m rflint --ignore LineTooLong myapp'
 		  //      	sh 'python3 -m robot.run --NoStatusRC --variable $WORKSPACE:test --outputdir reports test/'

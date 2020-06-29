@@ -1,6 +1,5 @@
 FROM python:3.8-alpine3.11
 
-MAINTAINER Paul Podgorsek <ppodgorsek@users.noreply.github.com>
 LABEL description Robot Framework in Docker.
 
 # Set the reports directory environment variable
@@ -47,18 +46,32 @@ COPY bin/chromium-browser.sh /opt/robotframework/bin/chromium-browser
 COPY bin/run-tests-in-virtual-screen.sh /opt/robotframework/bin/
 COPY bin/mysql-grafana.sh /opt/robotframework/bin/
 
+###
+RUN apk add --no-cache mariadb-connector-c-dev ;\
+    apk add --no-cache --virtual .build-deps \
+        build-base \
+        mariadb-dev ;\
+    pip install mysqlclient;\
+    apk del .build-deps 
+
 # Install system dependencies
 RUN apk update \
   && apk --no-cache upgrade \
   && apk --no-cache --virtual .build-deps add \
  #   dbbot-sqlalchemy \
+    build-base \
+    #py-mysqldb \
     gcc \
     libffi-dev \
     libc-dev \
+    #mariadb-client-libs \
+     mariadb-connector-c-dev \
+    mariadb-connector-c \
     mariadb-dev \
-    mariadb-connector-c-dev \
+   # libmysqlclient-dev \
     linux-headers \
     make \
+    python3-dev \
     musl-dev \
     openssl-dev \
     which \
@@ -108,7 +121,18 @@ RUN apk update \
     && mv geckodriver /opt/robotframework/drivers/geckodriver \
     && rm geckodriver-$GECKO_DRIVER_VERSION-linux64.tar.gz \
 
-  && apk del --no-cache --update-cache .build-deps
+  && apk del --no-cache --update-cache .build-deps 
+
+#RUN  apk del build-deps
+#&& apk -q --no-cache add mariadb-client-libs
+
+RUN apk update && \
+	apk add mysql mysql-client && \
+	addgroup mysql mysql && \
+	mkdir /scripts && \
+	rm -rf /var/cache/apk/*
+
+EXPOSE 3306
 
 # Create the default report and work folders with the default user to avoid runtime issues
 # These folders are writeable by anyone, to ensure the user can be changed on the command line.
