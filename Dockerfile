@@ -104,6 +104,7 @@ RUN apk update \
     dbbot \
     dbbot-sqlalchemy \
     robotframework-distbot \
+    cython \
     psutil \
     pymssql \
     postgres \
