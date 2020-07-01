@@ -39,7 +39,7 @@ ENV ROBOT_FRAMEWORK_VERSION 3.1.2
 ENV SELENIUM_LIBRARY_VERSION 4.3.0
 ENV SSH_LIBRARY_VERSION 3.4.0
 ENV XVFB_VERSION 1.20
-ENV DISBOT_VERSION 0.2
+ENV DISTBOT_VERSION 0.2
 
 # Prepare binaries to be executed
 COPY bin/chromedriver.sh /opt/robotframework/bin/chromedriver
@@ -162,4 +162,4 @@ WORKDIR ${ROBOT_WORK_DIR}
 # Execute all robot tests
 CMD ["run-tests-in-virtual-screen.sh","mysql-grafana.sh"]
 
-ENTRYPOINT [ "python3", "-m", "disbot" ]
+ENTRYPOINT [ "python3", "-m", "distbot" ]
