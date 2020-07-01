@@ -104,6 +104,11 @@ RUN apk update \
     dbbot \
     dbbot-sqlalchemy \
     robotframework-distbot \
+    psutil \
+    pymssql \
+    postgres \
+    PyMySQL \
+
    # dbbot-sqlalchemy \
 
 # Download the glibc package for Alpine Linux from its GitHub repository
@@ -162,4 +167,4 @@ WORKDIR ${ROBOT_WORK_DIR}
 # Execute all robot tests
 CMD ["run-tests-in-virtual-screen.sh","mysql-grafana.sh"]
 
-ENTRYPOINT [ "python3", "-m", "distbot" ]
+ENTRYPOINT [ "python", "-m", "distbot" ]
