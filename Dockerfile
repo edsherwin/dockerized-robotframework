@@ -107,7 +107,7 @@ RUN apk update \
     robotframework-databaselibrary \
     cython \
     psutil \
- #   pymssql \
+    pymssql \
     postgres \
     PyMySQL \
 
