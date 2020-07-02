@@ -39,7 +39,7 @@ ENV ROBOT_FRAMEWORK_VERSION 3.1.2
 ENV SELENIUM_LIBRARY_VERSION 4.3.0
 ENV SSH_LIBRARY_VERSION 3.4.0
 ENV XVFB_VERSION 1.20
-ENV DISTBOT_VERSION 0.2
+#ENV DISTBOT_VERSION 0.2
 
 # Prepare binaries to be executed
 COPY bin/chromedriver.sh /opt/robotframework/bin/chromedriver
@@ -104,9 +104,10 @@ RUN apk update \
     dbbot \
     dbbot-sqlalchemy \
     robotframework-distbot \
+    robotframework-databaselibrary \
     cython \
     psutil \
-    pymssql \
+ #   pymssql \
     postgres \
     PyMySQL \
 
